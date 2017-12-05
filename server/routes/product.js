@@ -10,7 +10,7 @@ router.post('/product', (req, res, next) => {
   const newProduct = new Product({
     brand: req.body.brand,
     model: req.body.model,
-    category: req.body.category,
+    categories: req.body.categories,
     image: req.body.image,
     description: req.body.description,
     price: req.body.price,
@@ -19,7 +19,7 @@ router.post('/product', (req, res, next) => {
 
 
 	newProduct.save()
-  .then( request => {res.json({ message: 'New Product created!', id: newProduct._id, price: newProduct.price });})
+  .then( request => {res.json({ message: 'New Product created!', id: newProduct._id, price: newProduct.price, categories: newProduct.categories});})
   .catch( err => {res.json(err); });
 
 });
