@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const auth = require('./routes/auth');
+const product = require('./routes/product');
+
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
@@ -52,6 +54,8 @@ app.use(session({
 require('./passport')(app);
 
 app.use('/api/auth', auth);
+app.use('/', product);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
