@@ -6,7 +6,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-// const auth = require('./routes/auth');
+const auth = require('./routes/auth');
 // const product = require('./routes/product');
 const generic = require('./routes/generic');
 const session = require('express-session');
@@ -55,7 +55,7 @@ require('./passport')(app);
 app.use('/product', generic(require('./models/Product')));
 app.use('/cart', generic(require('./models/Cart')));
 app.use('/review', generic(require('./models/Review')));
-// app.use('/api/auth', auth);
+app.use('/api/auth', auth);
 // app.use('/', product);
 // app.use('/', cart)
 
