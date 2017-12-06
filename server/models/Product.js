@@ -5,7 +5,7 @@ const Schema   = mongoose.Schema;
 
 const productSchema = new Schema({
   brand: { type: String },
-  model: { type: String },
+  model: { type: String, unique: true },
   // category: { type: String, enum: ["Mod", "Ato", "E-liquid"], default:"Mod"},
   // subcategory: { type: String, enum: ["Mechanic", "Elecronic", "Atomizer", "Claromizer", "0gr", "3gr",] },
 

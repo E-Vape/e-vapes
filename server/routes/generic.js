@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const _ = require('lodash');
+const Product = require('../models/Product');
 
 const checkIDParam = (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
