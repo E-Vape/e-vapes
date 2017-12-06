@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const _ = require('lodash');
-const Cart = require('../models/Cart');
 
 const checkIDParam = (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -29,7 +28,6 @@ const simpleCRUD = (Model) => {
 
   /* Create a new #{model} */
   router.post('/', (req, res, next) => {
-
     const obj_data = _.pick(req.body, model_properties);
     const obj = new Model(obj_data);
 
