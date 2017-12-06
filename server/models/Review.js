@@ -3,8 +3,8 @@ const Schema   = mongoose.Schema;
 
 const reviewSchema = new Schema({
   text: { type: String, required: true },
-  author : { type: Schema.Types.ObjectId, ref: 'User'}, //???,
-  product : { type: Schema.Types.ObjectId, ref: 'Product'}, //???,
+  author : { type: Schema.Types.ObjectId, ref: 'User'},
+  product : { type: Schema.Types.ObjectId, ref: 'Product'},
 
   }, {
   timestamps: {
