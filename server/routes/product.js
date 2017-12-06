@@ -50,8 +50,8 @@ router.get('/products/:id', checkIDParam, (req, res) => {
 
 //Edit product
 router.put('/products/:id', checkIDParam, (req, res) => {
-  const {brand, name, specs, image} = req.body;
-  const updates = {brand, name, specs, image};
+  const {brand, model, image, description, price, rating, category} = req.body;
+  const updates = {brand, model, image, description, price, rating, category};
 
   Product.findByIdAndUpdate(req.params.id, updates, {new:true})
     .then(p => res.status(200).json(p))

@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { AuthService } from '../services/auth.service';
-import { LabarraComponent } from './labarra/labarra.component';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
@@ -14,7 +13,6 @@ import { routes } from './routes';
   declarations: [
     AppComponent,
     LoginFormComponent,
-    LabarraComponent,
     SignupComponent
   ],
   imports: [
