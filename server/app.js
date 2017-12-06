@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const auth = require('./routes/auth');
 const product = require('./routes/product');
+const address = require('./routes/address');
 // const generic = require('./routes/generic');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -57,6 +58,7 @@ require('./passport')(app);
 // app.use('/review', generic(require('./models/Review')));
 app.use('/api/auth', auth);
 app.use('/', product);
+app.use('/', address)
 // app.use('/', cart)
 
 // catch 404 and forward to error handler
