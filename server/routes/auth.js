@@ -6,7 +6,7 @@ const authRoutes = express.Router();
 
 authRoutes.post('/signup', (req, res, next) => {
   const {username, password} = req.body;
-console.log(req.body);
+  console.log(req.body);
   if (!username || !password) {
     res.status(400).json({ message: 'Provide username and password' });
     return;
@@ -26,18 +26,19 @@ console.log(req.body);
       username,
       password: hashPass
     });
-    return theUser.save();
-  })
-  .then(newUser => {
-    console.log(newUser);
-    req.login(newUser, (err) => {
-      if (err) {
-        console.log(err);
-        res.status(500).json({ message: 'Something went wrong' });
-        return;
-      }
-      res.status(200).json(req.user);
-    });
+
+    theUser.save()
+    .then(newUser => {
+      console.log(newUser);
+      req.login(newUser, (err) => {
+        if (err) {
+          console.log(err);
+          res.status(500).json({ message: 'Something went wrong' });
+          return;
+        }
+        res.status(200).json(req.user);
+      });
+    })
   })
   .catch(e => {
       console.log(e)
