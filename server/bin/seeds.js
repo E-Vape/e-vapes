@@ -1,7 +1,26 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/vapes', {useMongoClient: true});
-const product = require('../models/product');
-const vapes = [
+const Product = require('../models/Product');
+const User = require('../models/User');
+const bcrypt = require('bcrypt');
+const bcryptSalt = 10;
+const salt = bcrypt.genSaltSync(bcryptSalt);
+
+const password = '1234';
+const encryptedPass = bcrypt.hashSync(password, salt);
+const users = [
+  {
+    username: 'Angel',
+    password: encryptedPass,
+    // role: 'admin'
+  },
+  {
+    username: 'Clementina',
+    password: encryptedPass,
+    // role: 'admin'
+  },
+]
+const products = [
     {
         brand: 'IJOY',
         model: 'Captain PD270',
@@ -229,9 +248,15 @@ const vapes = [
       },
 ];
 
-product.create(vapes, (err, vapes) => {
+Product.create(products, (err, products) => {
     if (err){ throw(err) }
-    console.log("Success", vapes);
+    console.log("Success", products);
+    mongoose.connection.close();
+  })
+
+  User.create(users, (err, users) => {
+    if (err){ throw(err) }
+    console.log("Success", users);
     mongoose.connection.close();
   })
 
