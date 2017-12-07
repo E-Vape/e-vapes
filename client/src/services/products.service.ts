@@ -15,4 +15,9 @@ export class ProductsService {
       return this.http.get(BASEURL)
                       .map(res => res.json());
   }
+
+  getProduct(id): Observable<any> {
+  return this.http.get(`${BASEURL}/${id}`)
+    .map((res) => res.json());
+}
 }

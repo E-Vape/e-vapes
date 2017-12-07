@@ -6,6 +6,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 
 import { ProductsListComponent } from './products-list/products-list.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 export const routes: Routes = [
   { path: 'api/auth/signup', component: SignupComponent },
@@ -13,7 +14,7 @@ export const routes: Routes = [
   { path: 'products', component: ProductsListComponent},
   { path: 'profile', component: ProfileComponent },
   { path: 'api/auth', component: ProfileEditComponent },
-
+  { path: 'product/:id', component: ProductDetailComponent},
 
   { path: '**', redirectTo: '' },
 
