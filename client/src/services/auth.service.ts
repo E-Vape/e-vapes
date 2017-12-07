@@ -48,6 +48,11 @@ export class AuthService {
       .catch(this.handleError);
   }
 
+  editUserByID(id,username,password){
+       return this.http.put(`${BASE_URL}/${id}`, {username,password})
+                       .map(res => res.json());
+   }
+
   logout() {
     return this.http.get(`${BASE_URL}/logout`, this.options)
       .map(res => res.json())

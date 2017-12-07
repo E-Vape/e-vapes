@@ -12,12 +12,12 @@ const users = [
   {
     username: 'Angel',
     password: encryptedPass,
-    // role: 'admin'
+    role: 'admin'
   },
   {
     username: 'Clementina',
     password: encryptedPass,
-    // role: 'admin'
+    role: 'admin'
   },
 ]
 const products = [

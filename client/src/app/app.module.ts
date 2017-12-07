@@ -9,6 +9,8 @@ import { ProductsService } from '../services/products.service';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 import { ProductsListComponent } from './products-list/products-list.component';
 
@@ -17,7 +19,9 @@ import { ProductsListComponent } from './products-list/products-list.component';
     AppComponent,
     LoginFormComponent,
     SignupComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    ProfileComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
