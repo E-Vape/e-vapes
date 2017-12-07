@@ -3,6 +3,16 @@ const passport = require('passport');
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const authRoutes = express.Router();
+const mongoose = require('mongoose');
+
+
+const checkIDParam = (req,res,next) =>{
+  if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({ message: 'Specified id is not valid' });
+    return;
+  }
+  next();
+};
 
 authRoutes.post('/signup', (req, res, next) => {
   const {username, password} = req.body;
@@ -85,5 +95,29 @@ authRoutes.get('/loggedin', (req, res, next) => {
   res.status(403).json({ message: 'Unauthorized' });
 });
 
+authRoutes.put('/:id', checkIDParam, (req, res) => {
+  const {username, password} = req.body;
+  console.log(req.body);
+  if (!username || !password) {
+    res.status(400).json({ message: 'Provide username and password' });
+    return;
+  }
+
+  const salt     = bcrypt.genSaltSync(10);
+  const hashPass = bcrypt.hashSync(password, salt);
+
+  const updates = {username, password: hashPass};
+
+  User.findByIdAndUpdate(req.params.id, updates, {new:true})
+    .then(p => res.status(200).json(p))
+    .catch(e => res.status(500).json({error:e.message}));
+});
+
+//Delete product
+authRoutes.delete('/:id',checkIDParam, (req, res) => {
+  User.findByIdAndRemove(req.params.id)
+      .then(p => res.status(200).json(p))
+      .catch(e => res.status(500).json({error:e.message}));
+});
 
 module.exports = authRoutes;

@@ -3,6 +3,8 @@ const router = express.Router();
 const Product = require('../models/Product');
 const mongoose = require('mongoose');
 
+
+
 const checkIDParam = (req,res,next) =>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid' });
@@ -50,10 +52,10 @@ router.get('/products/:id', checkIDParam, (req, res) => {
 
 //Edit product
 router.put('/products/:id', checkIDParam, (req, res) => {
-  const {brand, model, image, description, price, rating, category} = req.body;
-  const updates = {brand, model, image, description, price, rating, category};
+  const productId = req.params.id;
+  const updates = req.body;
 
-  Product.findByIdAndUpdate(req.params.id, updates, {new:true})
+  Product.findByIdAndUpdate(productId, updates, {new:true})
     .then(p => res.status(200).json(p))
     .catch(e => res.status(500).json({error:e.message}));
 });
