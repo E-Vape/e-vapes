@@ -8,12 +8,16 @@ import { AuthService } from '../services/auth.service';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
