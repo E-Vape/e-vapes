@@ -215,7 +215,7 @@ const products = [
         model: 'Orange Fantasi',
         category: 'E-liquid',
         subcategory: '0mg',
-        image: 'https://res.cloudinary.com/dhhgusvci/image/upload/v1512547579/don-juan-reserve-kings-crest-60ml_lbjlcr.jpg',
+        image: 'https://res.cloudinary.com/dhhgusvci/image/upload/v1512547799/fantasi-orange-ice2_umx6rb.jpg',
         description: 'Refrescante sabor a naranja fresca y recien cogida del árbol, inspirado en el famoso refresco de naranja.',
         price: 22.95,
       },

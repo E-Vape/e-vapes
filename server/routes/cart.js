@@ -24,7 +24,6 @@ router.post('/carts', (req, res, next) => {
       message: 'New Cart created!',
       cart: p
     }))
-  })
     .catch( e => res.status(500).json({error:e.message}));
 });
 

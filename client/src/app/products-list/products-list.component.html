@@ -1,8 +1,6 @@
-  <p >
-    products-list works!
-  </p>
-
-  <div class="products" *ngFor="let p of products">
-  <h3>{{p.brand}}</h3>
-  <!-- <img src="{{p.image}}" alt=""> -->
+ <h1>PRODUCTS</h1>
+  <div class="products" *ngFor="let product of products; let idx = index">
+  <h3>{{product.brand}}</h3>
+  <h4>{{product.model}}</h4>
+  <a><img src="{{product.image}}" alt=""></a>
   </div>
