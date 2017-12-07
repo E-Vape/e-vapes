@@ -14,8 +14,8 @@ export class AuthService {
     withCredentials: true
   }
 
-  user:object;
-  loginEvent:EventEmitter<Object> = new EventEmitter();
+  user: Object;
+  loginEvent: EventEmitter<Object> = new EventEmitter();
 
   constructor(private http: Http) {
     this.isLoggedIn().subscribe();

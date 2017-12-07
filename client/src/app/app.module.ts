@@ -5,15 +5,19 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { AuthService } from '../services/auth.service';
+import { ProductsService } from '../services/products.service';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
+
+import { ProductsListComponent } from './products-list/products-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    SignupComponent
+    SignupComponent,
+    ProductsListComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,7 @@ import { routes } from './routes';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService],
+  providers: [AuthService, ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
