@@ -14,6 +14,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ShoppingcartService } from '../services/shoppingCart.service';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ShoppingcartService } from '../services/shoppingCart.service';
     ProductsListComponent,
     ProfileComponent,
     ProfileEditComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

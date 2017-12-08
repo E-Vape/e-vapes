@@ -24,4 +24,9 @@ export class ProductsService {
     .map(res => res.json());
   }
 
+
+  getProduct(id): Observable<any> {
+  return this.http.get(`${BASEURL}/${id}`)
+    .map((res) => res.json());
+}
 }
