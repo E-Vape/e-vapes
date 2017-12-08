@@ -15,6 +15,7 @@
   </select>
 <br>
 <label> Sub-category: </label>
+
    <select [(ngModel)]="newProduct.type.subcategory" #name="ngModel" *ngIf='newProduct.type.category == "Mod"'>
     <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
     <option value="Mechanic">Mechanic</option>
@@ -30,4 +31,17 @@
   <option value="Nicotine">Nicotine</option>
   <option value="noNicotine">No nicotine</option>
 </select>
-  <button (click)='createObject(brand,model)'>Create</button>
+<br>
+<label> Description: </label>
+<textarea type="text" [(ngModel)]="description" name="description"></textarea>
+<br>
+<label> Price: </label>
+<input type="number" [(ngModel)]="price" name="price" min="0"/>
+<br>
+<label> Rating: </label>
+<input type="number" [(ngModel)]="rating" name="rating" min="0" max="5"/>
+<br>
+<label> Image: </label>
+<input type="text" [(ngModel)]="image" name="image"/>
+<br>
+  <button (click)='createObject(brand,model,category,subcategory,description,price,rating,image)'>Create</button>
