@@ -1,8 +1,8 @@
 <h1>PRODUCT DETAIL</h1>
- <div class="products" *ngIf="products">
+ <div class="product" *ngIf="products">
  <h3>Brand: {{products.brand}}</h3>
  <h4>Model: {{products.model}}</h4>
  <h4>Category: {{products.category}}</h4>
 
- <a><img src="{{products.image}}"></a>
+ <a><img class="product-img" src="{{products.image}}"></a>
  </div>
