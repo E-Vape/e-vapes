@@ -11,8 +11,9 @@ import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
-
 import { ProductsListComponent } from './products-list/products-list.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ShoppingcartService } from '../services/shoppingCart.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProductsListComponent } from './products-list/products-list.component';
     SignupComponent,
     ProductsListComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, ProductsService],
+  providers: [AuthService, ProductsService, ShoppingcartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
