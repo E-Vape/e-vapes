@@ -1,8 +1,12 @@
 <h1>PRODUCT DETAIL</h1>
- <div class="product" *ngIf="products">
- <h3>Brand: {{products.brand}}</h3>
- <h4>Model: {{products.model}}</h4>
- <h4>Category: {{products.category}}</h4>
-
- <a><img class="product-img" src="{{products.image}}"></a>
- </div>
+<div class="product" *ngIf="products">
+    <h3>Brand: {{products.brand}}</h3>
+    <h4>Model: {{products.model}}</h4>
+    <h4>Category: {{products.category}}</h4>
+    <h4>Price: {{products.price}} $</h4>
+    <h4>Rating: {{products.rating}}/5</h4>
+    <p>Description: {{products.description}}</p>
+    <a><img class="product-img" src="{{products.image}}"></a>
+    <a [routerLink]="['/products']">Back to list</a>
+    <button (click)= 'selectedProduct()'>Add to Cart</button>
+  </div>

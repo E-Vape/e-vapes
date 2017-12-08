@@ -5,6 +5,7 @@ const userSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
   role: { type: String, enum: ['client', 'admin'], default:'client', required: true},
+  cart: [],
 }, {
   timestamps: {
     createdAt: 'created_at',

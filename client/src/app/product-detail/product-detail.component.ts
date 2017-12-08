@@ -35,11 +35,13 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
+  public recentProduct = {};
+  public shoppingCart = [];
 
-  products:object;
+  products: object;
   constructor(
-    private router:Router,
-    private route:ActivatedRoute,
+    private router: Router,
+    private route: ActivatedRoute,
     private ProductsService: ProductsService) { }
 
   ngOnInit() {
@@ -59,6 +61,11 @@ export class ProductDetailComponent implements OnInit {
       .subscribe((products) => {
         this.products = products;
       });
+  }
+
+  addProduct() {
+    this.recentProduct = this.products;
+    this.shoppingCart.push(this.products)
   }
   // deletePhone() {
   //   if (window.confirm('Are you sure?')) {

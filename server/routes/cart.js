@@ -13,7 +13,7 @@ const checkIDParam = (req,res,next) =>{
 
 
 //Create new cart
-router.post('/carts', (req, res, next) => {
+router.post('/cart', (req, res, next) => {
   const {user, products, totalPrice, status} = req.body;
   const theCart = new Cart({
     user, products, totalPrice, status
@@ -28,7 +28,7 @@ router.post('/carts', (req, res, next) => {
 });
 
 //Edit cart
-router.put('/carts/:id', checkIDParam, (req, res) => {
+router.put('/cart/:id', checkIDParam, (req, res) => {
   const {user, products, totalPrice, status} = req.body;
   const updates = {user, products, totalPrice, status};
 
@@ -38,7 +38,7 @@ router.put('/carts/:id', checkIDParam, (req, res) => {
 });
 
 //Delete cart
-router.delete('/carts/:id',checkIDParam, (req, res) => {
+router.delete('/cart/:id',checkIDParam, (req, res) => {
   Product.findByIdAndRemove(req.params.id)
       .then(p => res.status(200).json(p))
       .catch(e => res.status(500).json({error:e.message}));

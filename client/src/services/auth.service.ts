@@ -12,7 +12,7 @@ const BASE_URL = `${BASE_DOMAIN}/api/auth`;
 export class AuthService {
   options: Object = {
     withCredentials: true
-  }
+  };
 
   user: Object;
   loginEvent: EventEmitter<Object> = new EventEmitter();
@@ -48,8 +48,8 @@ export class AuthService {
       .catch(this.handleError);
   }
 
-  editUserByID(id,username,password){
-       return this.http.put(`${BASE_URL}/${id}`, {username,password})
+  editUserByID(id, username, password) {
+       return this.http.put(`${BASE_URL}/${id}`, {username, password})
                        .map(res => res.json());
    }
 

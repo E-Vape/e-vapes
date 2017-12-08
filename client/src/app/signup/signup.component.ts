@@ -13,11 +13,12 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-signup (username, password){
-this.auth.signup(username,password).subscribe();
+signup (username, password) {
+this.auth.signup(username, password).subscribe();
 }
 
 logout() {
   this.auth.logout().subscribe();
 }
+
 }

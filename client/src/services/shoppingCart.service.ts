@@ -22,55 +22,55 @@ export class ShoppingcartService {
 
   constructor(private http: Http) {}
 
-  getByUserId(id) {
-    return this.http.get(`${BASE_URL}/`);
-  }
+  // getByUserId(id) {
+  //   return this.http.get(`${BASE_URL}/`);
+  // }
 
-  confirmBuy(buyOrder) {
-    this.shoppingCart = [];
-    return this.http.post(`${BASE_URL}/new`, buyOrder)
-      .map(res => {
-        res.json();
-        this.shoppingCart = [];
-      });
-  }
+  // confirmBuy(buyOrder) {
+  //   this.shoppingCart = [];
+  //   return this.http.post(`${BASE_URL}/new`, buyOrder)
+  //     .map(res => {
+  //       res.json();
+  //       this.shoppingCart = [];
+  //     });
+  // }
 
-  getOrderByUser (id) {
-    return this.http.get(`${BASE_URL}/${id}/user`)
-      .map(res => res.json());
-  }
+  // getOrderByUser (id) {
+  //   return this.http.get(`${BASE_URL}/${id}/user`)
+  //     .map(res => res.json());
+  // }
 
-  addProduct(product) {
-    this.totAmount = 0;
-    this.shoppingCart.push({
-      product,
-      quantity: 1
-    });
-  }
+  // addProduct(product) {
+  //   this.totAmount = 0;
+  //   this.shoppingCart.push({
+  //     product,
+  //     quantity: 1
+  //   });
+  // }
 
-  saveShoppingCart() {
-    this.shoppingCart.forEach(e => {
-      this.totAmount += e.product.price * e.quantity;
-    });
-  }
+  // saveShoppingCart() {
+  //   this.shoppingCart.forEach(e => {
+  //     this.totAmount += e.product.price * e.quantity;
+  //   });
+  // }
 
-  setAmount(price, quantity) {
-    console.log(price, quantity);
-  }
+  // setAmount(price, quantity) {
+  //   console.log(price, quantity);
+  // }
 
-  getAmount () {
-    return this.totAmount;
-  }
+  // getAmount () {
+  //   return this.totAmount;
+  // }
 
-  getShoppingCard() {
-    return this.shoppingCart;
-  }
+  // getShoppingCard() {
+  //   return this.shoppingCart;
+  // }
 
-  clear() {
-    this.shoppingCart = [];
-  }
+  // clear() {
+  //   this.shoppingCart = [];
+  // }
 
-  deleteItem(id) {
-    this.shoppingCart.splice(this.shoppingCart.map(e => e.product._id).indexOf(id), 1);
-  }
+  // deleteItem(id) {
+  //   this.shoppingCart.splice(this.shoppingCart.map(e => e.product._id).indexOf(id), 1);
+  // }
 }
