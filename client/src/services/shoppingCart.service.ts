@@ -6,12 +6,6 @@ import 'rxjs/add/operator/map';
 const BASE_DOMAIN = 'http://localhost:3000';
 const BASE_URL = `${BASE_DOMAIN}/cart`;
 
-interface CartItem {
-  product: any;
-  quantity: any;
-}
-
-
 @Injectable()
 
 export class ShoppingcartService {

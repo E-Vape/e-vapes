@@ -14,16 +14,6 @@ import { ProductsListComponent } from '../products-list/products-list.component'
 
 export class ShoppingCartComponent implements OnInit {
 
-  // public recentProduct = 'none';
-  // public cart = [];
-
-
-  constructor(public AuthService: AuthService, public ProductsService: ProductsService) {}
-
   ngOnInit() {
-   }
-  //  selectedProduct() {
-  //   this.recentProduct = product;
-  //   this.cart.push(product)
-  //  }
   }
+}
