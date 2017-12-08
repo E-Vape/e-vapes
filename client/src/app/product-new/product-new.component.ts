@@ -21,10 +21,10 @@ export class ProductNewComponent implements OnInit {
       subcategory:'',
     }
   };
-  constructor(private router:Router, private route:ActivatedRoute, private ProductsService: ProductsService) {
-        this.ProductsService.createNewProduct(this.newProduct).subscribe(() => {
-          this.router.navigate(['/products']);
-        });
+  constructor(private router:Router, private route:ActivatedRoute, private productsService: ProductsService) {
+        // this.productsService.createNewProduct(this.newProduct).subscribe(() => {
+        //   this.router.navigate(['/products']);
+        // });
 
   }
 
@@ -45,6 +45,16 @@ export class ProductNewComponent implements OnInit {
 
     }
     console.log(this.newProduct)
+    this.productsService.createNewProduct(this.newProduct)
+      .subscribe(res => {
+        console.log(res)
+      })
+  }
 
+  saveChanges() {
+    this.productsService.createNewProduct(this.newProduct)
+      .subscribe(() => {
+        this.router.navigate(['/products']);
+      });
   }
 }

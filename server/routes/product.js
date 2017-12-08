@@ -23,6 +23,7 @@ router.get('/products', (req, res, next) => {
 
 //Create new product
 router.post('/products/new', (req, res, next) => {
+  console.log(req.body)
   const {brand, model, image, description, price, rating, type } = req.body;
   const theProduct = new Product({
     brand, model, image, description, price, rating, type
