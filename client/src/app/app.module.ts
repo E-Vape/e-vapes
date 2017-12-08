@@ -13,9 +13,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { ShoppingcartService } from '../services/shoppingCart.service';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductNewComponent } from './product-new/product-new.component';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { ProductNewComponent } from './product-new/product-new.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, ProductsService, ShoppingcartService],
+  providers: [AuthService, ProductsService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

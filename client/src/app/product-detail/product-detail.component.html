@@ -8,6 +8,8 @@
  <p>Description: {{products.description}}</p>
  <a><img class="product-img" src="{{products.image}}"></a>
  <a [routerLink]="['/products']">Back to list</a>
- <button (click)= 'selectedProduct()'>Add to Cart</button>
-
+ <button (click)= 'addProduct(products)'>Add to Cart</button>
+ <!-- <ul>
+    <li *ngFor="let item of shoppingCart">{{item.brand}} - {{item.model}}</li>
+  </ul> -->
  </div>

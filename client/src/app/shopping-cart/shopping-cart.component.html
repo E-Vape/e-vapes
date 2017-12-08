@@ -1,9 +1,7 @@
-<p>
-  shopping-cart!
-</p>
+
 <div *ngIf='authService.user'>
-  {{authService.user._id}}
+     {{authService.user.username}} Cart
 </div>
 <ul>
-  <li *ngFor="let item of shoppingCart">{{item.brand}} - {{item.model}}</li>
+  <li *ngFor="let item of shoppingCartService.shoppingCart">{{item.brand}} - {{item.model}} - {{item.price}} €</li>
 </ul>

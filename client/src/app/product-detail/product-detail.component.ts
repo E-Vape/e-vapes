@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { ProductsService } from '../../services/products.service';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -15,12 +16,14 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private ProductsService: ProductsService) { }
+    private productsService: ProductsService,
+    public shoppingCartService: ShoppingCartService
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       console.log(`El parametro recibido es: ${params['id']}`);
-      this.ProductsService.getProduct(params['id']).subscribe(
+      this.productsService.getProduct(params['id']).subscribe(
         (product => this.products = product),
         (error => console.log(error))
       );
@@ -30,15 +33,14 @@ export class ProductDetailComponent implements OnInit {
   }
 
   getProductDetails(id) {
-    this.ProductsService.getProduct(id)
+    this.productsService.getProduct(id)
       .subscribe((products) => {
         this.products = products;
       });
   }
 
-  addProduct() {
-    this.recentProduct = this.products;
-    this.shoppingCart.push(this.products)
+  addProduct(object) {
+    this.shoppingCartService.addProductToCart(object);
   }
   // deletePhone() {
   //   if (window.confirm('Are you sure?')) {
