@@ -29,4 +29,9 @@ export class ProductsService {
   return this.http.get(`${BASEURL}/${id}`)
     .map((res) => res.json());
 }
+
+createNewProduct(product) {
+   return this.http.post(`${BASEURL}/new`, product, this.options)
+     .map(res => res.json());
+ }
 }

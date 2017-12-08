@@ -15,6 +15,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ShoppingcartService } from '../services/shoppingCart.service';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductNewComponent } from './product-new/product-new.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProfileComponent,
     ProfileEditComponent,
     ShoppingCartComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductNewComponent
   ],
   imports: [
     BrowserModule,

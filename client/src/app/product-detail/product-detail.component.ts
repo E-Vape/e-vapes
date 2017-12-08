@@ -1,30 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { ProductsService } from '../../services/products.service';
-// import { ActivatedRoute, Router } from '@angular/router';
-//
-//
-//
-// @Component({
-//   selector: 'app-product-detail',
-//   templateUrl: './product-detail.component.html',
-//   styleUrls: ['./product-detail.component.css']
-// })
-//
-//
-// export class ProductsDetailComponent implements OnInit {
-//   products: Array<any> = [];
-//
-//   constructor(public ProductsService: ProductsService) {
-//     this.ProductsService.getProducts().subscribe( list => {
-//       this.products = list;
-//       console.log(this.products)
-//     });
-//   }
-//   ngOnInit() {
-//   }
-//
-// }
-
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { ProductsService } from '../../services/products.service';
@@ -54,7 +27,7 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  getPhoneDetails(id) {
+  getProductDetails(id) {
     this.ProductsService.getProduct(id)
       .subscribe((products) => {
         this.products = products;

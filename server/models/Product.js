@@ -8,12 +8,10 @@ const productSchema = new Schema({
   description: { type: String },
   price: { type: String },
   rating: { type: Number },
-  category: { type:{
-    Mod: { type: String, enum:['Mechanic','Electronic'] },
-    Ato : { type: String, enum:['Atomizer','Claromizer'] },
-    Eliquid : { type: String, enum:['Nicotine','noNicotine'] }
- }
-}
+  type:{
+    category:{ type: String, enum:['Mod','Ato','Eliquid'] },
+    subcategory:{ type: String, enum:['Mechanic','Electronic','Atomizer','Claromizer','Nicotine','noNicotine'] }
+  }
 },{
     timestamps: {
       createdAt: 'created_at',

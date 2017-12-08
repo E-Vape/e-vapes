@@ -1,0 +1,33 @@
+<div>
+<h2> Create New Product</h2>
+<label> Brand: </label>
+<input type="text" [(ngModel)]="brand" name="brand"/>
+<br>
+<label> Model: </label>
+<input type="text" [(ngModel)]="model" name="model"/>
+<br>
+  <label> Category: </label>
+  <select type="text" [(ngModel)]="newProduct.type.category" #name="ngModel" name="category">
+    <option type="text" value="Select category" disabled selected >Select category</option>
+    <option value="Mod">Mod</option>
+    <option value="Ato">Ato</option>
+    <option value="Eliquid">E-liquid</option>
+  </select>
+<br>
+<label> Sub-category: </label>
+   <select [(ngModel)]="newProduct.type.subcategory" #name="ngModel" *ngIf='newProduct.type.category == "Mod"'>
+    <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+    <option value="Mechanic">Mechanic</option>
+    <option value="Electronic">Electronic</option>
+  </select>
+  <select [(ngModel)]="newProduct.type.subcategory" #name="ngModel" *ngIf='newProduct.type.category == "Ato"'>
+   <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+   <option value="Atomizer">Atomizer</option>
+   <option value="Claromizer">Claromizer</option>
+ </select>
+ <select [(ngModel)]="newProduct.type.subcategory" #name="ngModel" *ngIf='newProduct.type.category == "Eliquid"'>
+  <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+  <option value="Nicotine">Nicotine</option>
+  <option value="noNicotine">No nicotine</option>
+</select>
+  <button (click)='createObject(brand,model)'>Create</button>
