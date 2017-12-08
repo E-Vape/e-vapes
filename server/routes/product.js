@@ -23,9 +23,9 @@ router.get('/products', (req, res, next) => {
 
 //Create new product
 router.post('/products/new', (req, res, next) => {
-  const {brand, model, image, description, price, rating, category} = req.body;
+  const {brand, model, image, description, price, rating, type } = req.body;
   const theProduct = new Product({
-    brand, model, image, description, price, rating, category
+    brand, model, image, description, price, rating, type
   });
 
   Product.findOne({ model }, '_id')
