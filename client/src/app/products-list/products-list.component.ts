@@ -3,7 +3,6 @@ import { ProductsService } from '../../services/products.service';
 import { AuthService } from '../../services/auth.service';
 
 
-
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
