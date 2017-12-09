@@ -3,8 +3,6 @@ const router = express.Router();
 const Product = require('../models/Product');
 const mongoose = require('mongoose');
 
-
-
 const checkIDParam = (req,res,next) =>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid' });
@@ -15,14 +13,13 @@ const checkIDParam = (req,res,next) =>{
 
 //Product list
 router.get('/products', (req, res, next) => {
-  console.log("GET PRODUCTS");
   Product.find()
     .then(productsList => res.status(200).json(productsList))
     .catch(e => res.status(500).json({error:e.message}));
 });
 
 //Create new product
-router.post('/products/new', (req, res, next) => {
+router.post('/product/new', (req, res, next) => {
   console.log(req.body)
   const {brand, model, image, description, price, rating, type } = req.body;
   const theProduct = new Product({
@@ -45,16 +42,18 @@ router.post('/products/new', (req, res, next) => {
 });
 
 //Get single product by id
-router.get('/products/:id', checkIDParam, (req, res) => {
+router.get('/product/:id', checkIDParam, (req, res) => {
   Product.findById(req.params.id)
     .then(p => res.status(200).json(p))
     .catch(e => res.status(500).json({error:e.message}));
 });
 
 //Edit product
-router.put('/products/:id', checkIDParam, (req, res) => {
+router.put('/product/:id', checkIDParam, (req, res) => {
   const productId = req.params.id;
   const updates = req.body;
+  console.log('SOY UPDATE');
+  console.log(updates);
 
   Product.findByIdAndUpdate(productId, updates, {new:true})
     .then(p => res.status(200).json(p))
@@ -62,8 +61,9 @@ router.put('/products/:id', checkIDParam, (req, res) => {
 });
 
 //Delete product
-router.delete('/products/:id',checkIDParam, (req, res) => {
-  Product.findByIdAndRemove(req.params.id)
+//checkIDParam,
+router.delete('/product/:id/delete', (req, res, next) => {
+  Product.findByIdAndRemove({_id: req.params.id})
       .then(p => res.status(200).json(p))
       .catch(e => res.status(500).json({error:e.message}));
 });

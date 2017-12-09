@@ -12,7 +12,7 @@ const BASEURL = `${DOMAIN}${PATH}`;
 export class ProductsService {
 
   private product: Object;
-  // private options = {withCredentials: true};
+  private options = {withCredentials: true};
 
   constructor(public http: Http) {}
 
@@ -21,19 +21,29 @@ export class ProductsService {
                       .map(res => res.json());
   }
   getOne(id) {
-    return this.http.get(`${BASEURL}/${id}`)
+    return this.http.get(`${DOMAIN}/product/${id}`, this.options)
     .map(res => res.json());
   }
 
 
   getProduct(id): Observable<any> {
-  return this.http.get(`${BASEURL}/${id}`)
-    .map((res) => res.json());
+  return this.http.get(`${DOMAIN}/product/${id}`, this.options)
+    .map(res => res.json());
 }
 
 createNewProduct(product) {
-  console.log(product)
-   return this.http.post(`${BASEURL}/new`, product)
+   return this.http.post(`${DOMAIN}/product/new`, product)
      .map(res => res.json());
  }
+
+ editProduct(id, brand, model, description, price, rating, image, category, subcategory) {
+    return this.http.put(`${DOMAIN}/product/edit/${id}`, { brand, model})
+      .map(res => res.json());
+  }
+
+  deleteProduct(id) {
+    return this.http.delete(`${DOMAIN}/product/${id}/delete`, this.options)
+      .map(res => res.json());
+  }
+
 }
