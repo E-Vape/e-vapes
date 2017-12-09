@@ -17,8 +17,11 @@ product;
   }
 
 editProduct(id, brand, model, description, price, rating, image, category, subcategory){
+
   this.productsService.editProduct(id, brand, model, description, price, rating, image, category, subcategory)
-  .subscribe(product => console.log(product));
+  .subscribe(product => this.product = product);
+  this.router.navigate(['/products']);
+
 }
 
 

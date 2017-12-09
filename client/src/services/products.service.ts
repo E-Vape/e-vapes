@@ -31,12 +31,12 @@ export class ProductsService {
     .map(res => res.json());
 }
 
-createNewProduct(product) {
+  createNewProduct(product) {
    return this.http.post(`${DOMAIN}/product/new`, product)
      .map(res => res.json());
  }
 
- editProduct(id, brand, model, description, price, rating, image, category, subcategory) {
+  editProduct(id, brand, model, description, price, rating, image, category, subcategory) {
     return this.http.put(`${DOMAIN}/product/edit/${id}`, { brand, model})
       .map(res => res.json());
   }
