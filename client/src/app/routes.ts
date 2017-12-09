@@ -18,9 +18,10 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'api/auth', component: ProfileEditComponent },
   { path: 'cart', component: ShoppingCartComponent},
-  { path: 'product/:id', component: ProductDetailComponent},
   { path: 'product/new', component: ProductNewComponent},
   { path: 'product/edit/:id', component: ProductEditComponent},
+  { path: 'product/:id', component: ProductDetailComponent},
+
 
 
 

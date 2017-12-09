@@ -9,8 +9,8 @@ const productSchema = new Schema({
   price: { type: Number },
   rating: { type: Number },
   type:{
-    category:{ type: String, enum:['Mod','Ato','Eliquid'] },
-    subcategory:{ type: String, enum:['Mechanic','Electronic','Atomizer','Claromizer','Nicotine','noNicotine'] }
+    category:{ type: String, enum:['Mod','Ato','E-liquid'] },
+    subcategory:{ type: String, enum:['Mechanic','Electronic','Atomizer','Claromizer','3mg','0mg'] }
   }
 },{
     timestamps: {
