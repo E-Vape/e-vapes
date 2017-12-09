@@ -13,7 +13,7 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 export class ShoppingCartComponent implements OnInit {
 
-private shoppingCart = [];
+shoppingCart = [];
 private changesSave: Boolean = false;
 
 constructor(
@@ -25,86 +25,12 @@ constructor(
 ) {}
 
   ngOnInit() {
-    // console.log(this.shoppingCartService.shoppingCart);
   }
 
-  createCart() {
-    // this.shoppingCartService.addProductToCart(this.shoppingCart)
-    // .subscribe(res => {
-    //   console.log(res);
-    // });
-  }
-
-  saveCart() {
-    // this.shoppingCartService.addProductToCart(this.shoppingCart)
-    // .subscribe(() => {
-    //   this.router.navigate(['/profile']);
-    // })
-  }
-  saveChanges() {
-    this.changesSave = !this.changesSave;
-    this.shoppingCartService.saveShoppingCart();
-  }
+  saveCart(id) {
+    this.shoppingCartService.userCartId(this.shoppingCart)
+    .subscribe(cart => { cart._id = cart;
+    console.log(cart);
+   })
+ }
 }
-// export class ShoppingCartComponent implements OnInit {
-
-//     public quantity: Number;
-//     public product: any;
-//     public products;
-//     public amount: Number;
-//     public changesSave: Boolean = false;
-//     public productsId;
-//     public user;
-
-//     constructor(
-//       public productService: ProductsService,
-//       public routes: ActivatedRoute,
-//       public shoppingCartService: ShoppingCartService,
-//       public router: Router,
-//       public auth: AuthService
-//     ) {
-//       this.auth.isLoggedIn()
-//         .subscribe(user => this.user = user);
-//     }
-
-//     ngOnInit() {
-//       this.routes.params.subscribe(params => {
-//         this.getProductDetails(params['id']);
-//       });
-//     }
-
-//     getProductDetails(id) {
-//       this.productService.getOne(id)
-//         .subscribe(product => {
-//           this.product = product;
-//         });
-//     }
-
-    // saveChanges() {
-    //   this.changesSave = !this.changesSave;
-    //   this.shoppingCartService.saveShoppingCart();
-    // }
-
-//     clear() {
-//       this.shoppingCartService.clear();
-//     }
-
-//     getProductId() {
-//       this.products = this.shoppingCartService.getShoppingCard();
-//       this.productsId = this.products.map(e => e.product._id);
-//     }
-
-//     buyProducts() {
-//       this.getProductId();
-//       this.amount = this.shoppingCartService.getAmount();
-//       const buyOrder = {
-//         buyer: this.user._id,
-//         producer: this.product.producer._id,
-//         products: this.productsId,
-//         totalPrice: this.amount
-//       };
-//       this.shoppingCartService.confirmBuy(buyOrder)
-//         .subscribe(res => console.log(res));
-//     }
-
-//   }

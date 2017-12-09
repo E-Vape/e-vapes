@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const cart = require('../models/Cart');
+const Cart = require('../models/Cart');
 const Product = require('../models/Product');
 const User = require('../models/User');
 const mongoose = require('mongoose');
@@ -16,9 +16,9 @@ const checkIDParam = (req,res,next) =>{
 
 //Create new cart
 router.post('/cart', (req, res, next) => {
-  const {user, products, totalPrice, status} = req.body;
+  const {userId, products, totalPrice, status} = req.body;
   const theCart = new Cart({
-    user, products, totalPrice, status
+    userId, products, totalPrice, status
   });
 
 
@@ -32,8 +32,8 @@ router.post('/cart', (req, res, next) => {
 
 //Edit cart
 router.put('/cart/:id', checkIDParam, (req, res) => {
-  const {user, products, totalPrice, status} = req.body;
-  const updates = {user, products, totalPrice, status};
+  const {userId, products, totalPrice, status} = req.body;
+  const updates = {userId, products, totalPrice, status};
 
   Product.findByIdAndUpdate(req.params.id, updates, {new:true})
     .then(p => res.status(200).json(p))

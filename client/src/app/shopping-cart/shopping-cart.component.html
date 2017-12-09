@@ -3,8 +3,10 @@
      {{authService.user.username}} Cart
 </div>
 <ul *ngIf='authService.user'>
-  <li *ngFor="let item of shoppingCartService.shoppingCart">{{item.brand}} - {{item.model}} - {{item.price}} €</li>
+  <li *ngFor="let item of shoppingCartService.shoppingCart">{{item.cart}} - {{item.brand}} - {{item.model}} - {{item.price}} €</li>
 </ul>
+
+<button (click)='saveCart(id)' >save cart</button>
 
 <!-- <div *ngIf="shoppingCartService.getShoppingCard().length > 0">
     <div class="row">
