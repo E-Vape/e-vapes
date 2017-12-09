@@ -6,6 +6,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductNewComponent } from './product-new/product-new.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 
 import { ProductDetailComponent } from './product-detail/product-detail.component';
@@ -18,7 +19,9 @@ export const routes: Routes = [
   { path: 'api/auth', component: ProfileEditComponent },
   { path: 'cart', component: ShoppingCartComponent},
   { path: 'product/:id', component: ProductDetailComponent},
-  { path: 'products/new', component: ProductNewComponent},
+  { path: 'product/new', component: ProductNewComponent},
+  { path: 'product/edit/:id', component: ProductEditComponent},
+
 
 
   { path: '**', redirectTo: '' },

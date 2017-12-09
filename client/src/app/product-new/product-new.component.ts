@@ -10,46 +10,20 @@ import { ProductsService } from '../../services/products.service';
 })
 
 export class ProductNewComponent implements OnInit {
-  newProduct= {
-    brand: '',
-    model: '',
-    description: '',
-    price: '',
-    rating: '',
-    image: '',
-    type: {
-      category: '',
-      subcategory: '',
-    }
-  };
+  newProduct={brand:'', model:'', description:'', price:'', rating:'', image:'', type:{ category:'', subcategory:''}};
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private productsService: ProductsService
-  ) {
-        // this.productsService.createNewProduct(this.newProduct).subscribe(() => {
-        //   this.router.navigate(['/products']);
-        // });
+  constructor(private router:Router, private route:ActivatedRoute, private productsService: ProductsService) {}
 
-  }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-  createObject(brand, model, category, subcategory, description, price, rating, image) {
-    this.newProduct = {
-      brand: brand,
-      model: model,
-      description: description,
-      price: price,
-      rating: rating,
-      image: image,
-      type: {
+  createObject(brand,model,category,subcategory,description,price,rating,image){
+    this.newProduct = {brand: brand, model: model, description: description, price:price, rating:rating, image:image,
+      type:{
         category: this.newProduct.type.category,
         subcategory: this.newProduct.type.subcategory
       }
-
     }
+
     console.log(this.newProduct)
     this.productsService.createNewProduct(this.newProduct)
       .subscribe(res => {

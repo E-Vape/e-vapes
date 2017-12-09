@@ -1,15 +1,23 @@
 <h1>PRODUCT DETAIL</h1>
- <div class="product" *ngIf="products">
- <h3>Brand: {{products.brand}}</h3>
- <h4>Model: {{products.model}}</h4>
- <h4>Category: {{products.category}}</h4>
- <h4>Sub-category: {{products.subcategory}}</h4>
- <h4>Price: {{products.price}} $</h4>
- <h4>Rating: {{products.rating}}/5</h4>
- <p>Description: {{products.description}}</p>
- <a><img class="product-img" src="{{products.image}}"></a>
+ <div class="product" *ngIf="product">
+ <h3>Brand: {{product.brand}}</h3>
+ <h4>Model: {{product.model}}</h4>
+ <h4>Category: {{product.category}}</h4>
+ <h4>Price: {{product.price}} $</h4>
+ <h4>Rating: {{product.rating}}/5</h4>
+ <p>Description: {{product.description}}</p>
+ <a><img class="product-img" src="{{product.image}}"></a>
  <a [routerLink]="['/products']">Back to list</a>
- <button (click)= 'addProduct(products)'>Add to Cart</button>
+
+
+ <!-- <a [routerLink]="['..','product',product._id]"><img src="{{product.image}}" alt=""></a> -->
+
+ <a [routerLink]="['/product/edit',product._id]">Edit product</a>
+ <button (click)= 'addProduct(product)'>Add to Cart</button>
+ <button (click)= 'deleteProduct()'>Delete</button>
+
+
+
  <!-- <ul>
     <li *ngFor="let item of shoppingCart">{{item.brand}} - {{item.model}}</li>
   </ul> -->
