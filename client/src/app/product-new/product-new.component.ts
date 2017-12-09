@@ -18,7 +18,7 @@ export class ProductNewComponent implements OnInit {
 
   createObject(brand, model, category, subcategory, description, price, rating, image) {
     this.newProduct = {brand: brand, model: model, description: description, price:price, rating:rating, image: image,
-      type:{
+      type: {
         category: this.newProduct.type.category,
         subcategory: this.newProduct.type.subcategory
       }
