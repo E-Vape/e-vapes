@@ -10,7 +10,7 @@
     <option type="text" value="Select category" disabled selected >Select category</option>
     <option value="Mod">Mod</option>
     <option value="Ato">Ato</option>
-    <option value="Eliquid">E-liquid</option>
+    <option value="E-liquid">E-liquid</option>
   </select>
 <br>
 <label> Sub-category: </label>
@@ -26,8 +26,8 @@
  </select>
  <select [(ngModel)]="editProduct.type.subcategory" #name="ngModel" *ngIf='editProduct.type.category == "Eliquid"'>
   <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
-  <option value="Nicotine">Nicotine</option>
-  <option value="noNicotine">No nicotine</option>
+  <option value="0mg">0mg</option>
+  <option value="3mg">3mg</option>
 </select>
 <br> -->
 <label> Description: </label>
