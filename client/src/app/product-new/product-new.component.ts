@@ -8,20 +8,26 @@ import { ProductsService } from '../../services/products.service';
   templateUrl: './product-new.component.html',
   styleUrls: ['./product-new.component.css']
 })
+
 export class ProductNewComponent implements OnInit {
-  newProduct={
-    brand:'',
-    model:'',
-    description:'',
-    price:'',
-    rating:'',
-    image:'',
-    type:{
-      category:'',
-      subcategory:'',
+  newProduct= {
+    brand: '',
+    model: '',
+    description: '',
+    price: '',
+    rating: '',
+    image: '',
+    type: {
+      category: '',
+      subcategory: '',
     }
   };
-  constructor(private router:Router, private route:ActivatedRoute, private productsService: ProductsService) {
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private productsService: ProductsService
+  ) {
         // this.productsService.createNewProduct(this.newProduct).subscribe(() => {
         //   this.router.navigate(['/products']);
         // });
@@ -30,15 +36,15 @@ export class ProductNewComponent implements OnInit {
 
   ngOnInit() {
   }
-  createObject(brand,model,category,subcategory,description,price,rating,image){
+  createObject(brand, model, category, subcategory, description, price, rating, image) {
     this.newProduct = {
       brand: brand,
       model: model,
       description: description,
-      price:price,
-      rating:rating,
-      image:image,
-      type:{
+      price: price,
+      rating: rating,
+      image: image,
+      type: {
         category: this.newProduct.type.category,
         subcategory: this.newProduct.type.subcategory
       }
@@ -47,8 +53,8 @@ export class ProductNewComponent implements OnInit {
     console.log(this.newProduct)
     this.productsService.createNewProduct(this.newProduct)
       .subscribe(res => {
-        console.log(res)
-      })
+        console.log(res);
+      });
   }
 
   saveChanges() {

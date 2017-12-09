@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/Cart');
+const cart = require('../models/Cart');
+const Product = require('../models/Product');
+const User = require('../models/User');
 const mongoose = require('mongoose');
 
 const checkIDParam = (req,res,next) =>{
@@ -19,10 +21,11 @@ router.post('/cart', (req, res, next) => {
     user, products, totalPrice, status
   });
 
-  theProduct.save()
-    .then( p => res.status(200).json({
+
+  theCart.save()
+    .then(c => res.status(200).json({
       message: 'New Cart created!',
-      cart: p
+      cart: c
     }))
     .catch( e => res.status(500).json({error:e.message}));
 });

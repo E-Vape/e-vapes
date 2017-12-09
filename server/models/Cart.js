@@ -7,7 +7,7 @@ const cartSchema = new Schema({
     quantity: Number,
     product: { type: Schema.Types.ObjectId, ref: 'Product'}
   }],
-  totalPrice: { type: String },
+  totalPrice: { type: Number },
   status: { type: String }
 });
 

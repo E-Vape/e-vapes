@@ -12,7 +12,7 @@ export class ProductDetailComponent implements OnInit {
   public recentProduct = {};
   public shoppingCart = [];
 
-  products: object;
+  products: Object;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -42,13 +42,6 @@ export class ProductDetailComponent implements OnInit {
   addProduct(object) {
     this.shoppingCartService.addProductToCart(object);
   }
-  // deletePhone() {
-  //   if (window.confirm('Are you sure?')) {
-  //     this.phoneService.remove(this.phone._id)
-  //       .subscribe(() => {
-  //         this.router.navigate(['']);
-  //       });
-  //   }
-  // }
+
 
 }

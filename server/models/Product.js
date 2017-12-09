@@ -6,7 +6,7 @@ const productSchema = new Schema({
   model: { type: String, unique: true },
   image: { type: String},
   description: { type: String },
-  price: { type: String },
+  price: { type: Number },
   rating: { type: Number },
   type:{
     category:{ type: String, enum:['Mod','Ato','Eliquid'] },

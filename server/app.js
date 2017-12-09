@@ -10,7 +10,7 @@ const auth = require('./routes/auth');
 const product = require('./routes/product');
 const review = require('./routes/review');
 const address = require('./routes/address');
-
+const cart = require('./routes/cart');
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -56,8 +56,8 @@ require('./passport')(app);
 app.use('/api/auth', auth);
 app.use('/', product);
 app.use('/', review);
-app.use('/', address)
-// app.use('/', cart)
+app.use('/', address);
+app.use('/', cart)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

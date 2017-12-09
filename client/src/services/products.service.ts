@@ -18,7 +18,7 @@ export class ProductsService {
 
   getProductsList(): Observable<any> {
       return this.http.get(BASEURL)
-                      .map(res => res.json());
+      .map(res => res.json());
   }
   getOne(id) {
     return this.http.get(`${BASEURL}/${id}`)
@@ -27,13 +27,13 @@ export class ProductsService {
 
 
   getProduct(id): Observable<any> {
-  return this.http.get(`${BASEURL}/${id}`)
+    return this.http.get(`${BASEURL}/${id}`)
     .map((res) => res.json());
 }
 
 createNewProduct(product) {
   console.log(product)
    return this.http.post(`${BASEURL}/new`, product)
-     .map(res => res.json());
+   .map(res => res.json());
  }
 }
