@@ -23,7 +23,7 @@ router.post('/cart', (req, res, next) => {
 
 
   theCart.save()
-    .then(c => res.status(200).json({
+    .then( c => res.status(200).json({
       message: 'New Cart created!',
       cart: c
     }))

@@ -24,8 +24,10 @@ const products = [
     {
         brand: 'IJOY',
         model: 'Captain PD270',
+        type:{
         category: 'Mod',
         subcategory: 'Electronic',
+        },
         image: 'https://res.cloudinary.com/dhhgusvci/image/upload/v1512488009/ijoy-captain-pd270-box-mod-black-01_ljwekw.jpg',
         description: 'IJOY Captain PD270 BOX MODde Ijoy está alimentado por dos baterias 20700 y es compatible con las baterias 18650 gracias al adaptador para baterias 18650(viene incluido). Se trata de un dispositivo de alta calidad con una potencia de salida máxima de 234W',
         price: 62.95,

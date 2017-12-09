@@ -2,9 +2,10 @@
 <div *ngIf='authService.user'>
      {{authService.user.username}} Cart
 </div>
-<ul>
+<ul *ngIf='authService.user'>
   <li *ngFor="let item of shoppingCartService.shoppingCart">{{item.brand}} - {{item.model}} - {{item.price}} €</li>
 </ul>
+
 <!-- <div *ngIf="shoppingCartService.getShoppingCard().length > 0">
     <div class="row">
       <div class="col-sm-2">
