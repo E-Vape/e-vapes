@@ -1,14 +1,13 @@
  <h1>PRODUCTS</h1>
-
  <a [routerLink]="['/product/new']">Create product</a>
  <br>
-
   <div class="products" *ngFor="let product of products; let idx = index">
   <h3>{{product.brand}}</h3>
   <h4>{{product.model}}</h4>
   <a [routerLink]="['..','product',product._id]"><img src="{{product.image}}" alt=""></a>
+
+
+
+
+
   </div>
-
-
-
-  <!-- <p>my-home-component works!</p> -->

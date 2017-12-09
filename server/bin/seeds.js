@@ -57,8 +57,10 @@ const products = [
       {
         brand: 'LOST VAPE',
         model: 'Prism',
-        category: 'Mod',
-        subcategory: 'Electronic',
+        type: {
+        	category: 'Mod',
+        	subcategory:'Electronic'
+        },
         image: 'https://res.cloudinary.com/dhhgusvci/image/upload/v1512549043/N0I1NzlGNTRFNjdENTU5RTBGOTI6ZjE2ZGM5Zjg0MzQ3ZWQ4MjUxNzk4ZTZhOWNjYTUxZTk6Ojo6OjA_oouqzr.jpg',
         description: 'El Prism 250W Box Mod es el primer dispositivo producito por Modefined. Funcionando con 3 baterias 18650 es capaz de encenderse al instante y conseguir una potencia máxima de 250w.',
         price: 54.95,

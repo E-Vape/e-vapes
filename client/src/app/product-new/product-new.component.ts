@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 
 
@@ -27,6 +27,7 @@ export class ProductNewComponent implements OnInit {
     console.log(this.newProduct)
     this.productsService.createNewProduct(this.newProduct)
       .subscribe(res => {
+        this.router.navigate(['/products']);
         console.log(res);
       });
   }
