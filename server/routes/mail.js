@@ -3,13 +3,19 @@ const path = require('path');
 const router = express.Router();
 const User = require('../models/User');
 const nodemailer = require('nodemailer');
-const notification = require('../models/Notification');
+const Mail = require('../models/Mail');
 
 router.post('/sendEmail', (req, res, next) => {
 
-    // User.findById(req.params.id)
-    // .populate('email')
-    
+    Mail.findById(req.params.id)
+    .populate('userId')
+    .then((questionData) => {
+   
+      if (typeof(questionData.userId.email) != "undefined"){
+        console.log('Hello!');
+      nodemailer.createTestAccount((err, account) => {
+          
+
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
@@ -22,7 +28,7 @@ router.post('/sendEmail', (req, res, next) => {
 
     let mailOptions = {
         from: 'e.vapes.online@gmail.com', // sender address
-        to: email, // list of receivers
+        to: questionData.userId.email, // list of receivers
         subject: 'Hello ✔', // Subject line
         text: 'hola Clementina', // plain text body
         html: 'HOLAAAAAAAA' // html body
@@ -38,5 +44,8 @@ router.post('/sendEmail', (req, res, next) => {
     });
 
 });
+      }
+    })
+})
 
 module.exports = router;
