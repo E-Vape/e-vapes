@@ -10,19 +10,51 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 })
 export class ProductEditComponent implements OnInit {
 product;
-  constructor( private router: Router, private route: ActivatedRoute, private productsService: ProductsService,
+editProduct = {
+    brand: '',
+    model: '',
+    description: '',
+    price: '',
+    rating: '',
+    image: '',
+    type:{
+      category:'',
+      subcategory:'',
+    }
+  };
+  constructor( private router: Router, private routes: ActivatedRoute, private productService: ProductsService,
   ) { }
 
   ngOnInit() {
+    this.routes.params.subscribe(params => {
+      this.getProductDetails(params['id']);
+    });
   }
 
-editProduct(id, brand, model, description, price, rating, image, category, subcategory){
+    getProductDetails(id) {
+      this.productService.getOne(id)
+        .subscribe(product => {
+          console.log(product)
+          this.product = product._id;
+          this.editProduct = {
+            brand: product.brand,
+            model: product.model,
+            description: product.description,
+            price: product.price,
+            rating: product.rating,
+            image: product.image,
+            type: {
+            category: product.type.category,
+            subcategory: product.type.subcategory,
+          }
+          };
+        });
+    }
 
-  this.productsService.editProduct(id, brand, model, description, price, rating, image, category, subcategory)
-  .subscribe(product => this.product = product);
-  this.router.navigate(['/products']);
-
-}
-
-
+    saveChanges() {
+    this.productService.editProduct(this.product, this.editProduct)
+      .subscribe(() => {
+        this.router.navigate(['/products', this.editProduct]);
+          });
+      }
   }

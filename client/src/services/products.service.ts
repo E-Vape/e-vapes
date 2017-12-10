@@ -36,10 +36,10 @@ export class ProductsService {
      .map(res => res.json());
  }
 
-  editProduct(id, brand, model, description, price, rating, image, category, subcategory) {
-    return this.http.put(`${DOMAIN}/product/edit/${id}`, { brand, model})
-      .map(res => res.json());
-  }
+  editProduct(id, product) {
+   return this.http.put(`${DOMAIN}/product/edit/${id}`, product, this.options)
+     .map(res => res.json());
+ }
 
   deleteProduct(id) {
     return this.http.delete(`${DOMAIN}/product/${id}/delete`, this.options)
