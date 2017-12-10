@@ -2,10 +2,21 @@
 <h2>
   {{title}}
 </h2>
-<a [routerLink]="['api/auth/login']">Login</a>
-<a [routerLink]="['api/auth/signup']">Signup</a>
-<a [routerLink]="['products']">list</a>
-<a [routerLink]="['profile']">Profile</a>
-<a [routerLink]="['/cart']">Cart</a>
+<div *ngIf="authService.user">
+  {{authService.user.username}}
+  <a [routerLink]="['products']">Products</a>
+  <a [routerLink]="['profile']">Profile</a>
+  <a [routerLink]="['/cart']">Cart</a>
+  <a [routerLink]="['']" (click)="logout()">Log Out</a>
+</div>
+
+<div *ngIf="!authService.user">
+  <a [routerLink]="['api/auth/login']">Login</a>
+  <a [routerLink]="['api/auth/signup']">Signup</a>
+  <a [routerLink]="['products']">Products</a>
+</div>
+
+
+
 
 <router-outlet></router-outlet>

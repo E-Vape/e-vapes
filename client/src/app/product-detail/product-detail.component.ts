@@ -43,6 +43,7 @@ export class ProductDetailComponent implements OnInit {
     this.shoppingCartService.addProductToCart(object);
   }
 
+
   deleteProduct(id) {
   this.productsService.deleteProduct(this.product._id)
     .subscribe(() => {

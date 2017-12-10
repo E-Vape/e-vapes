@@ -13,7 +13,6 @@ export class ProductsListComponent implements OnInit {
   products: Array<any> = [];
 
   constructor(public ProductsService: ProductsService, public authService: AuthService) {
-
   }
   ngOnInit() {
     this.ProductsService.getProductsList().subscribe( list => {

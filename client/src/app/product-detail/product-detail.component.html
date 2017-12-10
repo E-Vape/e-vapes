@@ -4,10 +4,15 @@
  <h4>Model: {{product.model}}</h4>
  <h4>Category: {{product.type.category}}</h4>
  <h4>Sub-category: {{product.type.subcategory}}</h4>
- <h4>Price: {{product.price}} $</h4>
+ <h4>Price: {{product.price}} €</h4>
  <h4>Rating: {{product.rating}}/5</h4>
  <p>Description: {{product.description}}</p>
  <a><img class="product-img" src="{{product.image}}"></a>
+ <br>
+ <label> Review: </label>
+ <textarea type="text" [(ngModel)]="product.review" name="review"></textarea>
+ <button (click)= 'addReview()'>Submit Review</button>
+ <hr>
  <a [routerLink]="['/products']">Back to list</a>
 
 

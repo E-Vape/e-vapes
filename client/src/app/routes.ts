@@ -9,6 +9,8 @@ import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { PaycartComponent } from './paycart/paycart.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+
 
 export const routes: Routes = [
   { path: 'api/auth/signup', component: SignupComponent },
@@ -21,6 +23,9 @@ export const routes: Routes = [
   { path: 'product/edit/:id', component: ProductEditComponent},
   { path: 'product/:id', component: ProductDetailComponent},
   { path: 'paymethod/user/cart', component: PaycartComponent},
+
+
+
 
   { path: '**', redirectTo: '' },
 
