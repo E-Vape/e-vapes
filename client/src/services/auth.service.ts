@@ -33,8 +33,8 @@ export class AuthService {
     return this.user;
   }
 
-  signup(username: String, password: String) {
-    return this.http.post(`${BASE_URL}/signup`, {username, password}, this.options)
+  signup(username: String, password: String, email: String) {
+    return this.http.post(`${BASE_URL}/signup`, {username, password, email}, this.options)
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);
@@ -48,8 +48,8 @@ export class AuthService {
       .catch(this.handleError);
   }
 
-  editUserByID(id, username, password) {
-       return this.http.put(`${BASE_URL}/${id}`, {username, password})
+  editUserByID(id, username, password, email) {
+       return this.http.put(`${BASE_URL}/${id}`, {username, password, email})
                        .map(res => res.json());
    }
 
@@ -65,5 +65,9 @@ export class AuthService {
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);
+  }
+  sendMail() {
+    return this.http.post(`${BASE_DOMAIN}/email/sendEmail`, this.options)
+    .map(res => res.json())
   }
 }

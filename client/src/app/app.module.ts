@@ -19,7 +19,7 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { PaycartComponent } from './paycart/paycart.component';
 import { ReviewsComponent } from './reviews/reviews.component';
-
+import { FilterPipe } from './products-list/pipes/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +34,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
     ProductEditComponent,
     PaycartComponent,
     ReviewsComponent,
-
+    FilterPipe,
 
   ],
   imports: [

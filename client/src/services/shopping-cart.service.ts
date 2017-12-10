@@ -30,8 +30,8 @@ export class ShoppingCartService implements OnInit {
   this.shoppingCart = [];
 }
 
-// deleteItem(id) {
-//   this.shoppingCart.splice(this.shoppingCart.map(e => e.product._id).indexOf(id), 1);
-// }
+deleteItem(id) {
+  this.shoppingCart.splice(this.shoppingCart.map(e => e.product._id).indexOf(id), 1);
+}
 
 }

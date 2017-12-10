@@ -1,5 +1,7 @@
 .products {
   display: inline-block;
+  padding: 10px;
+  border: 1px solid red;
 }
 .products img {
   height: 100px;

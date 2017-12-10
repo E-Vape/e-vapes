@@ -2,7 +2,8 @@
  <a [routerLink]="['/product/new']" >Create product</a>
  <!-- *ngIf='authService.user.role == "admin"' -->
  <br>
-  <div class="products" *ngFor="let product of products; let idx = index">
+ Search here: <input [(ngModel)]="search"> <br>
+  <div class="products" *ngFor="let product of products | filter:'brand':search || filter:'model':search ; let idx = index">
   <h3>{{product.brand}}</h3>
   <h4>{{product.model}}</h4>
   <a [routerLink]="['..','product',product._id]"><img src="{{product.image}}" alt=""></a>
