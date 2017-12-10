@@ -1,13 +1,12 @@
 <h2> Edit Product</h2>
 <label> Brand: </label>
-<input type="text" [(ngModel)]="brand" name="brand"/>
+<input type="text" [(ngModel)]="editProduct.brand" name="brand"/>
 <br>
 <label> Model: </label>
-<input type="text" [(ngModel)]="model" name="model"/>
+<input type="text" [(ngModel)]="editProduct.model" name="model"/>
 <br>
-  <!-- <label> Category: </label>
+  <label> Category: </label>
   <select type="text" [(ngModel)]="editProduct.type.category" #name="ngModel" name="category">
-    <option type="text" value="Select category" disabled selected >Select category</option>
     <option value="Mod">Mod</option>
     <option value="Ato">Ato</option>
     <option value="E-liquid">E-liquid</option>
@@ -29,18 +28,18 @@
   <option value="0mg">0mg</option>
   <option value="3mg">3mg</option>
 </select>
-<br> -->
+<br>
 <label> Description: </label>
-<textarea type="text" [(ngModel)]="description" name="description"></textarea>
+<textarea type="text" [(ngModel)]="editProduct.description" name="description"></textarea>
 <br>
 <label> Price: </label>
-<input type="number" [(ngModel)]="price" name="price" min="0"/>
+<input type="number" [(ngModel)]="editProduct.price" name="price" min="0"/>
 <br>
 <label> Rating: </label>
-<input type="number" [(ngModel)]="rating" name="rating" min="0" max="5"/>
+<input type="number" [(ngModel)]="editProduct.rating" name="rating" min="0" max="5"/>
 <br>
 <label> Image: </label>
-<input type="text" [(ngModel)]="image" name="image"/>
+<input type="text" [(ngModel)]="editProduct.image" name="image"/>
 <br>
 
-  <button (click)='editProduct(id,brand, model)'>Edit</button>
+  <button (click)="saveChanges()">Edit</button>

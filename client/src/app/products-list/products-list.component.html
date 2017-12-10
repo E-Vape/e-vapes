@@ -1,6 +1,7 @@
  <h1>PRODUCTS</h1>
 
- <a *ngIf='authService.user.role == "admin"' [routerLink]="['/product/new']">Create product</a>
+ <a [routerLink]="['/product/new']">Create product</a>
+<!-- *ngIf='authService.user.role == "admin"'  -->
  <br>
   <div class="products" *ngFor="let product of products; let idx = index">
   <h3>{{product.brand}}</h3>
