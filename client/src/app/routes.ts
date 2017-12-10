@@ -10,6 +10,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { PaycartComponent } from './paycart/paycart.component';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { SuggestionsComponent } from './suggestions/suggestions.component';
 
 
 export const routes: Routes = [
@@ -23,6 +24,8 @@ export const routes: Routes = [
   { path: 'product/edit/:id', component: ProductEditComponent},
   { path: 'product/:id', component: ProductDetailComponent},
   { path: 'paymethod/user/cart', component: PaycartComponent},
+  { path: 'suggestions', component: SuggestionsComponent},
+
 
 
 

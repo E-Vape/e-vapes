@@ -20,6 +20,10 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { PaycartComponent } from './paycart/paycart.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { FilterPipe } from './products-list/pipes/filter.pipe';
+import { SuggestionsComponent } from './suggestions/suggestions.component';
+import { CommonModule } from '@angular/common';
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,13 +39,18 @@ import { FilterPipe } from './products-list/pipes/filter.pipe';
     PaycartComponent,
     ReviewsComponent,
     FilterPipe,
+    SuggestionsComponent,
 
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAcrn9FTK0uiQlttKlDCZ14IThSMc1007E'
+    })
   ],
   providers: [AuthService, ProductsService, ShoppingCartService],
   bootstrap: [AppComponent]
