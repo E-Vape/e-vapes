@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./suggestions.component.css']
 })
 export class SuggestionsComponent implements OnInit {
-  lat: number = 40.3925
-  lng: number = 3.6983;
-
+  lat: number = 40.392467
+  lng: number = -3.697553;
   constructor() { }
 
   ngOnInit() {
