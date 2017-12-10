@@ -25,11 +25,21 @@ router.post('/cart', (req, res, next) => {
   theCart.save()
     .then( c => res.status(200).json({
       message: 'New Cart created!',
-      cart: c
+      cart: c,
     }))
     .catch( e => res.status(500).json({error:e.message}));
 });
 
+// router.get('/cart', (req, res, next)=> {
+//   Cart.findById(req.params.id)
+//   .populate('creatorCart')
+//   .then( cart => {
+//     console.log('hola ' + cart);
+//     res.render('/cart', {cart})
+//   })
+//   .catch(e => next(e));
+
+// })
 //Edit cart
 router.put('/cart/:id', checkIDParam, (req, res) => {
   const {userId, products, totalPrice, status} = req.body;

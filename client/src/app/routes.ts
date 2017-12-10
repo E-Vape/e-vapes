@@ -7,9 +7,8 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
-
-
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { PaycartComponent } from './paycart/paycart.component';
 
 export const routes: Routes = [
   { path: 'api/auth/signup', component: SignupComponent },
@@ -21,9 +20,7 @@ export const routes: Routes = [
   { path: 'product/new', component: ProductNewComponent},
   { path: 'product/edit/:id', component: ProductEditComponent},
   { path: 'product/:id', component: ProductDetailComponent},
-
-
-
+  { path: 'paymethod/user/cart', component: PaycartComponent},
 
   { path: '**', redirectTo: '' },
 

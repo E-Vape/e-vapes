@@ -25,4 +25,13 @@ export class ShoppingCartService implements OnInit {
  return this.http.post(`${BASEURL}/${id}`, this.options)
  .map(res => res.json());
  }
+
+ clearCart() {
+  this.shoppingCart = [];
+}
+
+// deleteItem(id) {
+//   this.shoppingCart.splice(this.shoppingCart.map(e => e.product._id).indexOf(id), 1);
+// }
+
 }

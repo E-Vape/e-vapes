@@ -1,85 +1,24 @@
-
 <div *ngIf='authService.user'>
-     {{authService.user.username}} Cart
+    {{authService.user.username}} Cart
 </div>
 <ul *ngIf='authService.user'>
-  <li *ngFor="let item of shoppingCartService.shoppingCart">{{item.cart}} - {{item.brand}} - {{item.model}} - {{item.price}} €</li>
+ <li *ngFor="let item of shoppingCartService.shoppingCart">{{item.cart}} - {{item.brand}} - {{item.model}} - {{item.price}} €</li>
 </ul>
+<button (click)='saveCart(id)'>save cart</button>
+<button (click)='clearCart()'>Clear cart</button>
+<a [routerLink]="['/paymethod/user/cart']">BUY</a>
 
-<button (click)='saveCart(id)' >save cart</button>
-
-<!-- <div *ngIf="shoppingCartService.getShoppingCard().length > 0">
-    <div class="row">
-      <div class="col-sm-2">
-        <h4 *ngIf="changesSave"> <b>Total</b> {{shoppingCartService.getAmount() | number:'1.2'}} &euro;</h4>
-      </div>
-      <div class="col-sm-8">
-        <table *ngIf="!changesSave" class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Product</th>
-              <th>Producer</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let cart of shoppingCartService.getShoppingCard(); let i=index">
-              <th>{{i + 1}}</th>
-              <th>{{cart.product.name}}</th>
-              <th>{{cart.product.producer.username}}</th>
-              <th>{{cart.product.price}} &euro;</th>
-              <th><input type="number" [(ngModel)]="cart.quantity"> &euro;</th>
-              <th>{{cart.product.price * cart.quantity | number:'1.2'}} &euro;</th>
-              <th>
-                <button class="btn btn-danger" (click)="shoppingCartService.deleteItem(cart.product._id)">
-                  <span class="glyphicon glyphicon-remove"></span>
-                </button>
-              </th>
-            </tr>
-          </tbody>
-        </table>
-        <table *ngIf="changesSave" class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Product</th>
-              <th>Producer</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let cart of shoppingCartService.getShoppingCard(); let i=index">
-              <th>{{i + 1}}</th>
-              <th>{{cart.product.name}}</th>
-              <th>{{cart.product.producer.username}}</th>
-              <th>{{cart.product.price}} &euro;</th>
-              <th>{{cart.quantity}}</th>
-              <th>{{cart.product.price * cart.quantity | number:'1.2'}} &euro;</th>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-sm-2">
-        <a *ngIf="!changesSave" class="btn bt" (click)="saveChanges()">Save Changes</a>
-        <a *ngIf="changesSave" class="btn bt" [routerLink]="['/products']" (click)="buyProducts()">Confirm</a>
-        <button (click)="clear()" class="btn bt">Clear list</button>
-        <a *ngIf="!changesSave" class="btn bt" [routerLink]="['/products']">Product list</a>
-        <a *ngIf="changesSave" class="btn bt" (click)="shoppingCartService.clear()" [routerLink]="['/products']">Product list</a>
-      </div>
-    </div>
-  </div>
-
-  <div *ngIf="shoppingCartService.getShoppingCard().length == 0">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8">
-      <h2 style="text-align: center;">Your shopping card is empty</h2>
-    </div>
-    <div class="col-sm-2">
-      <a class="btn bt" [routerLink]="['/products']">Product list</a>
-    </div>
-  </div> -->
+ <!-- <div *ngIf='authService.user'>
+<tr *ngFor="let item of shoppingCartService.shoppingCart; let i = index">
+  <th>{{i + 1}}</th>
+  <th>{{item.cart}}</th>
+  <th>{{item.brand}}</th>
+  <th>{{item.model}}</th>
+  <th>{{item.price}} €</th>
+  <th>
+    <button  (click)="shoppingCartService.deleteItem(item.product._id)">
+      <span>Delete product</span>
+    </button>
+  </th>
+</tr>
+</div> -->

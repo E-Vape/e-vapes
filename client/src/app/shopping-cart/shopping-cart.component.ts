@@ -15,6 +15,7 @@ export class ShoppingCartComponent implements OnInit {
 
 shoppingCart = [];
 private changesSave: Boolean = false;
+private user;
 
 constructor(
   private router: Router,
@@ -22,15 +23,23 @@ constructor(
   private productService: ProductsService,
   private authService: AuthService,
   private shoppingCartService: ShoppingCartService
-) {}
+) {
+  this.authService.isLoggedIn()
+  .subscribe(user => this.user = user);
+}
 
   ngOnInit() {
   }
 
   saveCart(id) {
     this.shoppingCartService.userCartId(this.shoppingCart)
-    .subscribe(cart => { cart._id = cart;
+    .subscribe(cart => {
+      cart._id = cart;
     console.log(cart);
-   })
+   });
  }
+
+ clearCart() {
+  this.shoppingCartService.clearCart();
+}
 }

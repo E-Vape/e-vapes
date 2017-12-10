@@ -17,6 +17,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { PaycartComponent } from './paycart/paycart.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     ShoppingCartComponent,
     ProductDetailComponent,
     ProductNewComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    PaycartComponent,
+
   ],
   imports: [
     BrowserModule,
