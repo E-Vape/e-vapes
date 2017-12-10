@@ -15,9 +15,9 @@ const checkIDParam = (req,res,next) =>{
 };
 
 authRoutes.post('/signup', (req, res, next) => {
-  const {username, password} = req.body;
+  const {username, password, email} = req.body;
   console.log(req.body);
-  if (!username || !password) {
+  if (!username || !password || !email) {
     res.status(400).json({ message: 'Provide username and password' });
     return;
   }
@@ -34,7 +34,8 @@ authRoutes.post('/signup', (req, res, next) => {
 
     const theUser = new User({
       username,
-      password: hashPass
+      password: hashPass,
+      email
     });
 
     theUser.save()
@@ -96,9 +97,9 @@ authRoutes.get('/loggedin', (req, res, next) => {
 });
 
 authRoutes.put('/:id', checkIDParam, (req, res) => {
-  const {username, password} = req.body;
+  const {username, password, email} = req.body;
   console.log(req.body);
-  if (!username || !password) {
+  if (!username || !password || !email) {
     res.status(400).json({ message: 'Provide username and password' });
     return;
   }
@@ -106,7 +107,7 @@ authRoutes.put('/:id', checkIDParam, (req, res) => {
   const salt     = bcrypt.genSaltSync(10);
   const hashPass = bcrypt.hashSync(password, salt);
 
-  const updates = {username, password: hashPass};
+  const updates = {username, password: hashPass, email};
 
   User.findByIdAndUpdate(req.params.id, updates, {new:true})
     .then(p => res.status(200).json(p))

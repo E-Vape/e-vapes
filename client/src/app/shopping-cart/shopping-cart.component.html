@@ -1,14 +1,14 @@
 <div *ngIf='authService.user'>
     {{authService.user.username}} Cart
 </div>
-<ul *ngIf='authService.user'>
+<!-- <ul *ngIf='authService.user'>
  <li *ngFor="let item of shoppingCartService.shoppingCart">{{item.cart}} - {{item.brand}} - {{item.model}} - {{item.price}} €</li>
-</ul>
+</ul> -->
 <button (click)='saveCart(id)'>save cart</button>
 <button (click)='clearCart()'>Clear cart</button>
 <a [routerLink]="['/paymethod/user/cart']">BUY</a>
 
- <!-- <div *ngIf='authService.user'>
+ <div *ngIf='authService.user'>
 <tr *ngFor="let item of shoppingCartService.shoppingCart; let i = index">
   <th>{{i + 1}}</th>
   <th>{{item.cart}}</th>
@@ -21,4 +21,4 @@
     </button>
   </th>
 </tr>
-</div> -->
+</div>

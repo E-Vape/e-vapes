@@ -14,8 +14,8 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-signup (username, password) {
-this.auth.signup(username, password).subscribe();
+signup (username, password, email) {
+this.auth.signup(username, password, email).subscribe();
 }
 
 logout() {

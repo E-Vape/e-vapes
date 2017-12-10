@@ -16,6 +16,7 @@ export class ShoppingCartComponent implements OnInit {
 shoppingCart = [];
 private changesSave: Boolean = false;
 private user;
+private product;
 
 constructor(
   private router: Router,
@@ -29,6 +30,7 @@ constructor(
 }
 
   ngOnInit() {
+
   }
 
   saveCart(id) {

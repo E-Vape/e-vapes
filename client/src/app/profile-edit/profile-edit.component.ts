@@ -11,8 +11,8 @@ export class ProfileEditComponent implements OnInit {
   constructor(private authService: AuthService) { }
   ngOnInit() {
   }
-  editUserByID(id, username, password) {
-    this.authService.editUserByID(id, username, password)
+  editUserByID(id, username, password, email) {
+    this.authService.editUserByID(id, username, password, email)
       .subscribe(object => console.log(object));
   }
 }

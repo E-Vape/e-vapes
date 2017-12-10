@@ -11,6 +11,7 @@ const product = require('./routes/product');
 const review = require('./routes/review');
 const address = require('./routes/address');
 const cart = require('./routes/cart');
+const mail = require('./routes/mail');
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -54,6 +55,7 @@ app.use(session({
 
 require('./passport')(app);
 app.use('/api/auth', auth);
+app.use('/email', mail);
 app.use('/', product);
 app.use('/', review);
 app.use('/', address);

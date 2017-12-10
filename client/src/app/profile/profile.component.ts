@@ -14,4 +14,8 @@ constructor(private authService: AuthService) { }
 
   }
 
+  sendEmail () {
+    this.authService.sendMail().subscribe();
+    console.log('The email was sent correctly')
+    }
 }
