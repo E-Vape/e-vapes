@@ -22,8 +22,8 @@ constructor(
   private router: Router,
   private route: ActivatedRoute,
   private productService: ProductsService,
-  private authService: AuthService,
-  private shoppingCartService: ShoppingCartService
+  public authService: AuthService,
+  public shoppingCartService: ShoppingCartService
 ) {
   this.authService.isLoggedIn()
   .subscribe(user => this.user = user);
@@ -33,12 +33,6 @@ constructor(
 
   }
 
-  saveCart() {
-    this.shoppingCartService.userCartId(this.shoppingCart)
-    .subscribe(cart => {
-    console.log(cart);
-   });
- }
 
  clearCart() {
   this.shoppingCartService.clearCart();

@@ -28,7 +28,6 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log(`El parametro recibido es: ${params['id']}`);
       this.getProductDetails(params['id'])
     });
   }

@@ -15,12 +15,11 @@ const checkIDParam = (req,res,next) =>{
 
 
 //Create new cart
-router.post('/cart', (req, res, next) => {
-  const {userId, products, totalPrice, status} = req.body;
+router.post('/cart/new', (req, res, next) => {
+  const {userId, products, totalPrice} = req.body;
   const theCart = new Cart({
-    userId, products, totalPrice, status
+    userId, products, totalPrice
   });
-
 
   theCart.save()
     .then( c => res.status(200).json({

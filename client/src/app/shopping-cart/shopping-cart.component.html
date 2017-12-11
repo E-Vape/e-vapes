@@ -20,6 +20,7 @@
     </button>
   </th>
 </tr>
-<button (click)='saveCart()'>save cart</button>
-
+</div>
+<div *ngIf='authService.user'>
+    <button (click)='shoppingCartService.saveCart(authService.user._id)'>Save cart</button>
 </div>
