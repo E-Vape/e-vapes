@@ -46,6 +46,7 @@ export class ShoppingCartService implements OnInit {
 
  clearCart() {
   this.shoppingCart = [];
+  this.totalPrice = 0;
 }
 
 deleteItem(id) {

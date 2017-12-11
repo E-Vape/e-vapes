@@ -3,7 +3,7 @@ const router = express.Router();
 const Product = require('../models/Product');
 const mongoose = require('mongoose');
 const multer  = require('multer')
-const upload = multer({dest:'./public/uploads'});
+const upload = multer({ dest:'./public/uploads'});
 
 const checkIDParam = (req,res,next) =>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -21,12 +21,13 @@ router.get('/products', (req, res, next) => {
 });
 
 //Create new product
-router.post('/product/new', upload.single('image'), (req, res, next) => {
+router.post('/product/new', upload.single('photo'), (req, res, next) => {
   console.log(req.body)
-  const {brand, model, description, price, rating, type, image } = req.body;
+  const {brand, model, description, price, rating, type} = req.body;
+  const {image} = req.file;
   const theProduct = new Product({
-    brand, model, description, price, rating, type, image
-    // image: req.file.originalname,
+    brand, model, description, price, rating, type, image: `/uploads/${req.file.filename}`,
+   
   });
 
   Product.findOne({ model }, '_id')
@@ -62,24 +63,7 @@ router.put('/product/edit/:id', checkIDParam, (req, res) => {
     .then(p => res.status(200).json(p))
     .catch(e => res.status(500).json({error:e.message}));
 });
-// router.put('/product/edit/:id', checkIDParam, (req, res, next) => {
-// const {brand, model, description, price, rating, image, category, subcategory} = req.body
-// Product.findByIdAndUpdate({_id: req.params.id}, {
-//   $set: {
-//     brand: brand,
-//     model: model,
-//     description: description,
-//     price: price,
-//     rating: rating,
-//     image: image,
-//     category: category,
-//     subcategory: subcategory,
-//   }}, {new:true}).exec()
-//   .then(p => res.status(200).json(p))
-//   .catch(e => res.status(500).json({error:e.message}))
-// })
-//Delete product
-//checkIDParam,
+
 router.delete('/product/:id/delete', (req, res, next) => {
   Product.findByIdAndRemove({_id: req.params.id})
       .then(p => res.status(200).json(p))

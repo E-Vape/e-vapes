@@ -14,10 +14,8 @@
   <th>{{item.brand}}</th>
   <th>{{item.model}}</th>
   <th>{{item.price}} €</th>
-  <th>{{item.totalPrice}} €</th>
-
   <th>
-    <button  (click)="shoppingCartService.deleteItem(item.product._id)">
+    <button  (click)="shoppingCartService.deleteItem(id)">
       <span>Delete product</span>
     </button>
   </th>
@@ -25,4 +23,5 @@
 </div>
 <div *ngIf='authService.user'>
     <button (click)='shoppingCartService.saveCart(authService.user._id)'>Save cart</button>
+    <p> Total price: {{shoppingCartService.totalPrice}} €</p>
 </div>

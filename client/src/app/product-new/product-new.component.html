@@ -41,7 +41,6 @@
 <input type="number" [(ngModel)]="rating" name="rating" min="0" max="5"/>
 <br>
 <label> Image: </label>
-<input type="text" [(ngModel)]="image" name="image"/>
+<input type="file" [(ngModel)]="image" name="image" id="image"/>
 <br>
-<!-- <input type="file" [(ngModel)]="image" name="image" id="image"/> -->
   <button (click)='createObject(brand,model,category,subcategory,description,price,rating,image)' >Create</button>
