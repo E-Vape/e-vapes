@@ -1,0 +1,45 @@
+<h2> Edit Product</h2>
+<label> Brand: </label>
+<input type="text" [(ngModel)]="editProduct.brand" name="brand"/>
+<br>
+<label> Model: </label>
+<input type="text" [(ngModel)]="editProduct.model" name="model"/>
+<br>
+  <label> Category: </label>
+  <select type="text" [(ngModel)]="editProduct.type.category" #name="ngModel" name="category">
+    <option value="Mod">Mod</option>
+    <option value="Ato">Ato</option>
+    <option value="E-liquid">E-liquid</option>
+  </select>
+<br>
+<label> Sub-category: </label>
+   <select [(ngModel)]="editProduct.type.subcategory" #name="ngModel" *ngIf='editProduct.type.category == "Mod"'>
+    <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+    <option value="Mechanic">Mechanic</option>
+    <option value="Electronic">Electronic</option>
+  </select>
+  <select [(ngModel)]="editProduct.type.subcategory" #name="ngModel" *ngIf='editProduct.type.category == "Ato"'>
+   <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+   <option value="Atomizer">Atomizer</option>
+   <option value="Claromizer">Claromizer</option>
+ </select>
+ <select [(ngModel)]="editProduct.type.subcategory" #name="ngModel" *ngIf='editProduct.type.category == "Eliquid"'>
+  <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+  <option value="0mg">0mg</option>
+  <option value="3mg">3mg</option>
+</select>
+<br>
+<label> Description: </label>
+<textarea type="text" [(ngModel)]="editProduct.description" name="description"></textarea>
+<br>
+<label> Price: </label>
+<input type="number" [(ngModel)]="editProduct.price" name="price" min="0"/>
+<br>
+<label> Rating: </label>
+<input type="number" [(ngModel)]="editProduct.rating" name="rating" min="0" max="5"/>
+<br>
+<label> Image: </label>
+<input type="text" [(ngModel)]="editProduct.image" name="image"/>
+<br>
+
+  <button (click)="saveChanges()">Edit</button>

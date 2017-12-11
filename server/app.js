@@ -7,19 +7,23 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const auth = require('./routes/auth');
+const product = require('./routes/product');
+const review = require('./routes/review');
+const address = require('./routes/address');
+const cart = require('./routes/cart');
+const mail = require('./routes/mail');
+
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 const app = express();
 
-mongoose.connect(process.env.DBURL).then(() =>{
+mongoose.Promise = Promise;
+mongoose.connect(process.env.DBURL, {useMongoClient:true}).then(() =>{
   console.log(`Connected to DB: ${process.env.DBURL}`);
 });
 
-
-var whitelist = [
-    'http://localhost:4200',
-];
+var whitelist = [ 'http://localhost:4200'];
 var corsOptions = {
     origin: function(origin, callback){
         var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
@@ -42,7 +46,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-  secret: 'ironfundingdev',
+  secret: 'vapesSecret',
   resave: false,
   saveUninitialized: true,
   store: new MongoStore( { mongooseConnection: mongoose.connection })
@@ -50,8 +54,12 @@ app.use(session({
 
 
 require('./passport')(app);
-
 app.use('/api/auth', auth);
+app.use('/email', mail);
+app.use('/', product);
+app.use('/', review);
+app.use('/', address);
+app.use('/', cart)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../services/auth.service';
+import { AuthService } from '../../services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login-form',
@@ -9,14 +11,11 @@ import {AuthService} from '../../services/auth.service';
 export class LoginFormComponent{
 
 
-  constructor(private auth:AuthService) { }
+  constructor(private router:Router, private route:ActivatedRoute, private auth: AuthService) { }
 
-  login(username, password){
-    this.auth.login(username,password).subscribe();
-  }
-
-  logout() {
-    this.auth.logout().subscribe();
+  login(username, password) {
+    this.auth.login(username, password).subscribe();
+    this.router.navigate(['/products']);
   }
 
 }

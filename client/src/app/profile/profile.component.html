@@ -1,0 +1,9 @@
+<div class="show-user" *ngIf='authService.user'>
+  <p>Username: {{ authService.user.username }}</p>
+  <p>Email: {{authService.user.email}}</p>
+  <p>Role: {{ authService.user.role }}</p>
+  <a [routerLink]="['/api/auth']">Edit Profile</a>
+</div>
+
+  <button (click)="sendEmail()" type="submit">Send Email</button>
+

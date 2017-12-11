@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
 
   constructor( private auth: AuthService) { }
@@ -13,11 +14,12 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-signup (username, password){
-this.auth.signup(username,password).subscribe();
+signup (username, password, email) {
+this.auth.signup(username, password, email).subscribe();
 }
 
 logout() {
   this.auth.logout().subscribe();
 }
+
 }

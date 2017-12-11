@@ -5,25 +5,54 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { AuthService } from '../services/auth.service';
-import { LabarraComponent } from './labarra/labarra.component';
+import { ProductsService } from '../services/products.service';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './routes';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { ProductsListComponent } from './products-list/products-list.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductNewComponent } from './product-new/product-new.component';
+import { ShoppingCartService } from '../services/shopping-cart.service';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { PaycartComponent } from './paycart/paycart.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { FilterPipe } from './products-list/pipes/filter.pipe';
+import { SuggestionsComponent } from './suggestions/suggestions.component';
+import { CommonModule } from '@angular/common';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    LabarraComponent,
-    SignupComponent
+    SignupComponent,
+    ProductsListComponent,
+    ProfileComponent,
+    ProfileEditComponent,
+    ShoppingCartComponent,
+    ProductDetailComponent,
+    ProductNewComponent,
+    ProductEditComponent,
+    PaycartComponent,
+    ReviewsComponent,
+    FilterPipe,
+    SuggestionsComponent,
+
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAcrn9FTK0uiQlttKlDCZ14IThSMc1007E'
+    })
   ],
-  providers: [AuthService],
+  providers: [AuthService, ProductsService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
