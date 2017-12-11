@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { AuthService } from '../../services/auth.service';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
+
 
 
 @Component({
@@ -12,12 +14,14 @@ import { AuthService } from '../../services/auth.service';
 export class ProductsListComponent implements OnInit {
   products: Array<any> = [];
 
-  constructor(public ProductsService: ProductsService, public authService: AuthService) {
+  constructor(public ProductsService: ProductsService, public authService: AuthService, public shoppingCartService: ShoppingCartService,) {
   }
   ngOnInit() {
     this.ProductsService.getProductsList().subscribe( list => {
       this.products = list;
     });
   }
-
+  addProduct(object) {
+    this.shoppingCartService.addProductToCart(object);
+  }
 }

@@ -41,6 +41,11 @@ export class ProductsService {
      .map(res => res.json());
  }
 
+ getReviews(id): Observable<any> {
+   return this.http.get(`${DOMAIN}/products/${id}`,this.options)
+     .map(res => res.json());
+ }
+
   deleteProduct(id) {
     return this.http.delete(`${DOMAIN}/product/${id}/delete`, this.options)
       .map(res => res.json());

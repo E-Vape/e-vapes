@@ -28,8 +28,8 @@ export class ShoppingCartService implements OnInit {
  saveCart(userId) {
    const products = [];
    this.shoppingCart.forEach(product => products.push(
-     {
-      quantity: 1,
+     { // anades un nuevo producto. Antes de guardar el producto, hacer un indexOf en la cesta de la compra
+      quantity: 1, // [producto1, producto2, producto3]
       product: product._id
     }
     ));
@@ -39,7 +39,7 @@ export class ShoppingCartService implements OnInit {
     totalPrice: this.totalPrice
    }
    console.log(`Guardando el carrito :${newCart.products}`)
- return this.http.post(`${BASEURL}/new`,newCart, this.options)
+ return this.http.post(`${BASEURL}/new`, newCart, this.options)
   // .map(res => res.json())
   .subscribe(res => console.log(res));
  }

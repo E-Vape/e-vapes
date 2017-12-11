@@ -55,31 +55,13 @@ router.get('/product/:id', checkIDParam, (req, res) => {
 router.put('/product/edit/:id', checkIDParam, (req, res) => {
   const productId = req.params.id;
   const updates = req.body;
-  console.log('SOY UPDATE');
-  console.log(updates);
 
   Product.findByIdAndUpdate(productId, updates, {new:true})
     .then(p => res.status(200).json(p))
     .catch(e => res.status(500).json({error:e.message}));
 });
-// router.put('/product/edit/:id', checkIDParam, (req, res, next) => {
-// const {brand, model, description, price, rating, image, category, subcategory} = req.body
-// Product.findByIdAndUpdate({_id: req.params.id}, {
-//   $set: {
-//     brand: brand,
-//     model: model,
-//     description: description,
-//     price: price,
-//     rating: rating,
-//     image: image,
-//     category: category,
-//     subcategory: subcategory,
-//   }}, {new:true}).exec()
-//   .then(p => res.status(200).json(p))
-//   .catch(e => res.status(500).json({error:e.message}))
-// })
+
 //Delete product
-//checkIDParam,
 router.delete('/product/:id/delete', (req, res, next) => {
   Product.findByIdAndRemove({_id: req.params.id})
       .then(p => res.status(200).json(p))
