@@ -66,7 +66,7 @@ router.delete('/reviews/:id',checkIDParam, (req, res) => {
 router.get('/products/:id', (req, res, next) => {
   console.log('entrando en este get de product id show reviews')
   Review.find({product:req.params.id})
-  // .populate('author')
+  .populate('author')
   .then(p => res.status(200).json(p))
   .catch(e => res.status(500).json({error:e.message}));
 });

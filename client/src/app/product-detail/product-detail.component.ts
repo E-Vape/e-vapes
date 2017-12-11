@@ -16,7 +16,7 @@ export class ProductDetailComponent implements OnInit {
   review;
   productId;
   newReview;
-
+  id;
 
   public recentProduct = {};
   public shoppingCart = [];
@@ -39,6 +39,8 @@ export class ProductDetailComponent implements OnInit {
       this.productId = params['id'];
       this.getProductDetails(params['id'])
       this.getReviews(params['id'])
+      this.id = params['id'];
+      // this.createReviews(params['id'])
     });
   }
 
@@ -59,8 +61,13 @@ this.productsService.getReviews(id).subscribe( review => {
 }
 
 createReviews(text, author) {
-  this.productsService.createReviews({review: this.newReview}, this.productId).subscribe(res => {console.log(res)})
-}
+
+   this.productsService.createReviews({review: this.newReview}, this.productId)
+   .subscribe(() => {
+     this.getReviews(this.id);
+   });
+   this.newReview='';
+ }
 
   deleteProduct(id) {
   this.productsService.deleteProduct(this.product._id)
