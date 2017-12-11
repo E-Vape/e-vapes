@@ -4,6 +4,7 @@ import { ProductsService } from '../../services/products.service';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { AuthService } from '../../services/auth.service';
 
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -12,6 +13,7 @@ import { AuthService } from '../../services/auth.service';
 export class ProductDetailComponent implements OnInit {
   product;
   user;
+  review;
   public recentProduct = {};
   public shoppingCart = [];
 
@@ -20,7 +22,8 @@ export class ProductDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private authService: AuthService,
     private productsService: ProductsService,
-    public shoppingCartService: ShoppingCartService
+    public shoppingCartService: ShoppingCartService,
+
   ) {
     this.authService.isLoggedIn()
     .subscribe(user => this.user = user);
@@ -42,6 +45,16 @@ export class ProductDetailComponent implements OnInit {
     this.shoppingCartService.addProductToCart(object);
   }
 
+// getReviews(id) {
+// console.log('entrando en get reviews')
+// this.productsService.getReviews(id).subscribe( review => {
+//   this.review = review;
+// });
+//
+//   // .subscribe(review => this.review = review)
+//
+//
+// }
 
   deleteProduct(id) {
   this.productsService.deleteProduct(this.product._id)

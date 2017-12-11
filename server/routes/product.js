@@ -56,14 +56,13 @@ router.get('/product/:id', checkIDParam, (req, res) => {
 router.put('/product/edit/:id', checkIDParam, (req, res) => {
   const productId = req.params.id;
   const updates = req.body;
-  console.log('SOY UPDATE');
-  console.log(updates);
 
   Product.findByIdAndUpdate(productId, updates, {new:true})
     .then(p => res.status(200).json(p))
     .catch(e => res.status(500).json({error:e.message}));
 });
 
+//Delete product
 router.delete('/product/:id/delete', (req, res, next) => {
   Product.findByIdAndRemove({_id: req.params.id})
       .then(p => res.status(200).json(p))

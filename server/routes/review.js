@@ -13,7 +13,6 @@ const checkIDParam = (req,res,next) =>{
 
 //Review list
 router.get('/reviews', (req, res, next) => {
-  console.log("GET REVIEWS");
   Review.find()
     .then(reviewsList => res.status(200).json(reviewsList))
     .catch(e => res.status(500).json({error:e.message}));
@@ -55,6 +54,14 @@ router.delete('/reviews/:id',checkIDParam, (req, res) => {
   Review.findByIdAndRemove(req.params.id)
       .then(p => res.status(200).json(p))
       .catch(e => res.status(500).json({error:e.message}));
+});
+
+//Get reviews from product ID
+router.get('/products/:id', (req, res, next) => {
+  console.log('entrando en este get de product id')
+  Review.find({product:req.params.id})
+  .then(p => res.status(200).json(p))
+  .catch(e => res.status(500).json({error:e.message}));
 });
 
 module.exports = router;

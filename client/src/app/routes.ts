@@ -25,6 +25,9 @@ export const routes: Routes = [
   { path: 'product/:id', component: ProductDetailComponent},
   { path: 'paymethod/user/cart', component: PaycartComponent},
   { path: 'suggestions', component: SuggestionsComponent},
+  { path: 'products/:id', component: ReviewsComponent},
+
+
 
 
 
