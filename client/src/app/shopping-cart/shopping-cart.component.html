@@ -4,7 +4,6 @@
 <!-- <ul *ngIf='authService.user'>
  <li *ngFor="let item of shoppingCartService.shoppingCart">{{item.cart}} - {{item.brand}} - {{item.model}} - {{item.price}} €</li>
 </ul> -->
-<button (click)='saveCart(id)'>save cart</button>
 <button (click)='clearCart()'>Clear cart</button>
 <a [routerLink]="['/paymethod/user/cart']">BUY</a>
 
@@ -21,4 +20,6 @@
     </button>
   </th>
 </tr>
+<button (click)='saveCart()'>save cart</button>
+
 </div>

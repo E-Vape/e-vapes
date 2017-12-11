@@ -13,7 +13,7 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 export class ShoppingCartComponent implements OnInit {
 
-shoppingCart = [];
+private shoppingCart = [];
 private changesSave: Boolean = false;
 private user;
 private product;
@@ -33,10 +33,9 @@ constructor(
 
   }
 
-  saveCart(id) {
+  saveCart() {
     this.shoppingCartService.userCartId(this.shoppingCart)
     .subscribe(cart => {
-      cart._id = cart;
     console.log(cart);
    });
  }
