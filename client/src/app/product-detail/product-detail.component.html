@@ -7,18 +7,23 @@
  <h4>Price: {{product.price}} €</h4>
  <h4>Rating: {{product.rating}}/5</h4>
  <p>Description: {{product.description}}</p>
+ <p>Reviews:</p>
+ <div *ngFor='let review of review'>
+   <p>Author: {{review.author}}</p>
+   <p>{{review.text}}</p>
 
+ </div>
  <a><img class="product-img" src="{{product.image}}"></a>
  <br>
 
  <label> Review: </label>
- <textarea type="text" [(ngModel)]="product.review" name="review"></textarea>
- <button (click)= 'addReview()'>Submit Review</button>
+ <textarea type="text" [(ngModel)]="newReview" name="review"></textarea>
+ <button (click)= 'createReviews()'>Submit Review</button>
+
  <hr>
  <a [routerLink]="['/products']">Back to list</a>
 
 
- <!-- <a [routerLink]="['..','product',product._id]"><img src="{{product.image}}" alt=""></a> -->
 
  <a [routerLink]="['/product/edit',product._id]">Edit product</a>
  <button (click)= 'addProduct(product)'>Add to Cart</button>

@@ -14,6 +14,10 @@ export class ProductDetailComponent implements OnInit {
   product;
   user;
   review;
+  productId;
+  newReview;
+
+
   public recentProduct = {};
   public shoppingCart = [];
 
@@ -30,8 +34,11 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.authService.user)
     this.route.params.subscribe(params => {
+      this.productId = params['id'];
       this.getProductDetails(params['id'])
+      this.getReviews(params['id'])
     });
   }
 
@@ -45,16 +52,15 @@ export class ProductDetailComponent implements OnInit {
     this.shoppingCartService.addProductToCart(object);
   }
 
-// getReviews(id) {
-// console.log('entrando en get reviews')
-// this.productsService.getReviews(id).subscribe( review => {
-//   this.review = review;
-// });
-//
-//   // .subscribe(review => this.review = review)
-//
-//
-// }
+getReviews(id) {
+this.productsService.getReviews(id).subscribe( review => {
+  this.review = review;
+});
+}
+
+createReviews(text, author) {
+  this.productsService.createReviews({review: this.newReview}, this.productId).subscribe(res => {console.log(res)})
+}
 
   deleteProduct(id) {
   this.productsService.deleteProduct(this.product._id)
