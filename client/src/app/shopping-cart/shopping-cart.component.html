@@ -14,6 +14,8 @@
   <th>{{item.brand}}</th>
   <th>{{item.model}}</th>
   <th>{{item.price}} €</th>
+  <th>{{item.totalPrice}} €</th>
+
   <th>
     <button  (click)="shoppingCartService.deleteItem(item.product._id)">
       <span>Delete product</span>
