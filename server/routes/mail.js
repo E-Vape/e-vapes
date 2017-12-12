@@ -16,11 +16,12 @@ router.post('/sendEmail', (req, res, next) => {
         }
     });
 
+
     let mailOptions = {
         from: 'e.vapes.online@gmail.com', // sender address
-        to: 'mataclemy@gmail.com', // list of receivers
+        to: req.user.email, // list of receivers
         subject: 'Your E-Vapes order confirmation ✔', // Subject line
-        text: 'Order Confirmation', // plain text body
+        text: 'Order confirmation', // plain text body
         html: 'Thank you for your order! You will soon recieve your shop!' // html body
     };
 
@@ -29,11 +30,9 @@ router.post('/sendEmail', (req, res, next) => {
             console.log(error);
         } else {
             console.log('Message sent: ' + info.response);
-            res.redirect("/users/profile");
         }
     });
 
 });
-
 
 module.exports = router;
