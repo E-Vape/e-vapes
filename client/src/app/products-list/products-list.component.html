@@ -19,13 +19,14 @@
  <div class="container">
     <div class="row">
         <!-- BEGIN PRODUCTS -->
-        <div *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index" class="col-md-3 col-sm-6">
-
+        <div class="col-md-3 col-sm-6 product-box hover-circle text-center" *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index">
           <span class="thumbnail">
               <img class="image" src="{{product.image}}" [routerLink]="['..','product',product._id]" alt="...">
               <h4>{{product.brand}}</h4>
               <h5>{{product.model}}</h5>
-
+              <div class="hoverly-item">
+              <a class="btn btn-default view-details-btn" [routerLink]="['..','product',product._id]">View Details</a>
+              </div>
               <!-- <div class="ratings">
                       <span class="glyphicon glyphicon-star"></span>
                       <span class="glyphicon glyphicon-star"></span>
@@ -46,6 +47,7 @@
 
               </div>
           </span>
+
         </div>
 
     </div>

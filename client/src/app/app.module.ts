@@ -18,11 +18,11 @@ import { ProductNewComponent } from './product-new/product-new.component';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { PaycartComponent } from './paycart/paycart.component';
-import { ReviewsComponent } from './reviews/reviews.component';
 import { FilterPipe } from './products-list/pipes/filter.pipe';
 import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +37,9 @@ import { AgmCoreModule } from '@agm/core';
     ProductNewComponent,
     ProductEditComponent,
     PaycartComponent,
-    ReviewsComponent,
     FilterPipe,
     SuggestionsComponent,
+    AddressComponent,
 
   ],
   imports: [

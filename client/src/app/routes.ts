@@ -9,8 +9,8 @@ import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { PaycartComponent } from './paycart/paycart.component';
-import { ReviewsComponent } from './reviews/reviews.component';
 import { SuggestionsComponent } from './suggestions/suggestions.component';
+import { AddressComponent } from './address/address.component';
 
 
 export const routes: Routes = [
@@ -25,12 +25,7 @@ export const routes: Routes = [
   { path: 'product/:id', component: ProductDetailComponent},
   { path: 'paymethod/user/cart', component: PaycartComponent},
   { path: 'suggestions', component: SuggestionsComponent},
-  { path: 'products/:id', component: ReviewsComponent},
-
-
-
-
+  { path: 'address', component: AddressComponent},
 
   { path: '**', redirectTo: '' },
-
 ]
