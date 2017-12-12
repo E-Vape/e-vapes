@@ -82,7 +82,8 @@
             <input type="text" [(ngModel)]="image" name="image" id="image" placeholder="image" >
 
             <!-- <input type="file" [(ngModel)]="image" name="image" id="image"/> -->
-            <button (click) ='createObject(brand,model,category,subcategory,description,price,rating,image)' [routerLink]="['/products']" type="submit" value="createProduct" class="btn btn-lg btn-info btn-sm">Create product</button>
+
+            <button (click)='createObject(brand,model,category,subcategory,description,price,rating,image)' class="btn btn-lg btn-info btn-sm">Create product</button>
             <div class="check-create-product">
               <p class="account-message">
                 Don't want to create a product?
