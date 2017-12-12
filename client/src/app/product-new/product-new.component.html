@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
 <h2> Create New Product</h2>
 <label> Brand: </label>
 <input type="text" [(ngModel)]="brand" name="brand"/>
@@ -43,4 +43,54 @@
 <label> Image: </label>
 <input type="file" [(ngModel)]="image" name="image" id="image"/>
 <br>
-  <button (click)='createObject(brand,model,category,subcategory,description,price,rating,image)' >Create</button>
+  <button (click)='createObject(brand,model,category,subcategory,description,price,rating,image)' >Create</button> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrap">
+          <p class="form-title">Create new product</p>
+          <div class="create-product">
+            <input id="brand" [(ngModel)]="brand" type="text" name="brand" placeholder="brand">
+            <input id="model" [(ngModel)]="model" type="text" name="model" placeholder="model">
+
+              <select type="text" [(ngModel)]="newProduct.type.category" #name="ngModel" name="category" >
+                <option type="text" value="Select category" disabled selected>Select category</option>
+                <option value="Mod">Mod</option>
+                <option value="Ato">Ato</option>
+                <option value="E-liquid">E-liquid</option>
+              </select>
+              <select type="text" [(ngModel)]="newProduct.type.subcategory" #name="ngModel" *ngIf='newProduct.type.category == "Mod"'>
+                <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+                <option value="Mechanic">Mechanic</option>
+                <option value="Electronic">Electronic</option>
+              </select>
+              <select type="text" [(ngModel)]="newProduct.type.subcategory" #name="ngModel" *ngIf='newProduct.type.category == "Ato"'>
+               <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+               <option value="Atomizer">Atomizer</option>
+               <option value="Claromizer">Claromizer</option>
+             </select>
+             <select type="text" [(ngModel)]="newProduct.type.subcategory" #name="ngModel" *ngIf='newProduct.type.category == "E-liquid"'>
+              <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+              <option value="0mg">0mg</option>
+              <option value="3mg">3mg</option>
+            </select>
+
+            <textarea id="description" [(ngModel)]="description" type="text" name="description" placeholder="description"></textarea>
+            <input id="price" [(ngModel)]="price" type="number" name="price" placeholder="price">
+            <input id="rating" [(ngModel)]="rating" type="text" name="rating" placeholder="rating">
+            <input type="text" [(ngModel)]="image" name="image" id="image" placeholder="image" >
+
+            <!-- <input type="file" [(ngModel)]="image" name="image" id="image"/> -->
+            <button (click) ='createObject(brand,model,category,subcategory,description,price,rating,image)' [routerLink]="['/products']" type="submit" value="createProduct" class="btn btn-lg btn-info btn-sm">Create product</button>
+            <div class="check-create-product">
+              <p class="account-message">
+                Don't want to create a product?
+                <a class="click" [routerLink]="['/products']">Go back</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

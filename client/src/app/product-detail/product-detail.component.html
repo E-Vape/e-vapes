@@ -1,4 +1,4 @@
-<h1>PRODUCT DETAIL</h1>
+<!-- <h1>PRODUCT DETAIL</h1>
  <div class="product" *ngIf="product">
  <h3>Brand: {{product.brand}}</h3>
  <h4>Model: {{product.model}}</h4>
@@ -22,8 +22,96 @@
 
  <hr>
  <a [routerLink]="['/products']">Back to list</a>
-
  <a [routerLink]="['/product/edit',product._id]">Edit product</a>
  <button (click)= 'addProduct(product)'>Add to Cart</button>
  <button (click)= 'deleteProduct()'>Delete</button>
- </div>
+ </div> -->
+
+ <html>
+     <body>
+         <div class="container">
+           <div class="row">
+                <div class="col-xs-4 item-photo">
+                     <img *ngIf="product" style="max-width:100%;" src="{{product.image}}" />
+                 </div>
+
+                 <div *ngIf="product" class="col-xs-5" style="border:0px solid gray">
+                     <!-- Datos del vendedor y titulo del producto -->
+                     <h3>{{product.brand}}</h3>
+                     <h4>{{product.model}}</h4>
+                     <h5 style="color:#337ab7">{{product.type.category}} · <small style="color:#337ab7">{{product.type.subcategory}}</small></h5>
+
+                     <!-- Precios -->
+                     <h6 class="title-price"><small>PRICE</small></h6>
+                     <h3 style="margin-top:0px;">{{product.price}}€</h3>
+
+                     <!-- Rating del producto -->
+                     <div class="section">
+                         <h6 class="title-attr" style="margin-top:15px;" ><small>rating: /5{{product.rating}} </small></h6>
+                     </div>
+
+                     <!-- Botones de compra, edit y eliminar -->
+                     <div class="section" style="padding-bottom:20px;">
+                         <button class="btn btn-success" (click)= 'addProduct(product)'><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to cart</button>
+
+                     </div>
+                 </div>
+
+                 <div *ngIf="product" class="col-xs-9">
+
+                   <!-- if admin edit and delete product -->
+                        <button [routerLink]="['/product/edit',product._id]" class="glyphicon glyphicon-pencil" id="edit-prod-btn"></button>
+                        <button (click)= 'deleteProduct()' class="glyphicon glyphicon-remove" id="delete-prod-btn"></button>
+                        <br>
+                     <ul class="menu-items">
+                         <li >Product detail</li>
+                         <!-- <li>Reviews</li> -->
+                     </ul>
+                     <div style="width:100%;border-top:1px solid silver">
+                         <p style="padding:15px;">
+                             <small>
+                             {{product.description}}
+                             </small>
+                         </p>
+                     </div>
+
+                     <ul class="menu-items">
+                         <li >Reviews</li>
+                     </ul>
+                     <div *ngFor='let review of review' style="width:100%;border-top:1px solid silver">
+                         <p style="padding:15px;">
+                             <small>
+
+                             {{review.author.username}}:
+                             {{review.text}}
+                             </small>
+                         </p>
+                     </div>
+
+                     <div style="width:100%;border-top:1px solid silver">
+                         <p style="padding:15px;">
+                             <small>
+
+                               <div class="container-here">
+                               	<div class="row" style="margin-top:40px;">
+                               		<div class="col-md-6">
+                                   	<div class="well well-sm">
+                                           <div class="text-right">
+                                               <textarea class="textarea" type="text" [(ngModel)]="newReview" name="review" placeholder="Write review here"></textarea>
+                                               <button (click)= 'createReviews()' id="sub-review" class="btn btn-success btn-green">Submit Review</button>
+                                           </div>
+                                       </div>
+                               		</div>
+                               	</div>
+                               </div>
+                             </small>
+                         </p>
+                     </div>
+                 </div>
+                 <br>
+
+             </div>
+         </div>
+     </body>
+
+ </html>
