@@ -42,7 +42,7 @@ export class ProductsService {
  }
 
  getReviews(id): Observable<any> {
-   return this.http.get(`${DOMAIN}/products/${id}`,this.options)
+   return this.http.get(`${DOMAIN}/products/${id}`, this.options)
      .map(res => res.json());
  }
 

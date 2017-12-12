@@ -12,7 +12,7 @@ const BASEURL = `${DOMAIN}${PATH}`;
 export class ShoppingCartService implements OnInit {
 
   public shoppingCart = [];
-  public totalPrice = 0;
+  public totalPrice =0;
   private options = {withCredentials: true};
 
   constructor(public http: Http) { }
@@ -23,13 +23,19 @@ export class ShoppingCartService implements OnInit {
  addProductToCart(object) {
   this.totalPrice = 0;
   this.shoppingCart.push(object);
-  this.shoppingCart.forEach(product => this.totalPrice += product.price);
+  this.shoppingCart.forEach(product => {
+    this.totalPrice += product.price;
+    console.log(`Precio del producto:${product.price}`);
+  });
+  this.totalPrice = Math.floor(this.totalPrice);
+  console.log(`2)${this.totalPrice}`);
+
  }
  saveCart(userId) {
    const products = [];
    this.shoppingCart.forEach(product => products.push(
-     { // anades un nuevo producto. Antes de guardar el producto, hacer un indexOf en la cesta de la compra
-      quantity: 1, // [producto1, producto2, producto3]
+     {
+      quantity: 1,
       product: product._id
     }
     ));
@@ -50,7 +56,9 @@ export class ShoppingCartService implements OnInit {
 }
 
 deleteItem(id) {
-  this.shoppingCart.splice(this.shoppingCart.map(e => e.product._id).indexOf(id), 1);
+  this.shoppingCart.splice(id, 1).forEach(product => this.totalPrice -= product.price);
+  this.totalPrice = Math.floor(this.totalPrice);
+  if(this.totalPrice<=0) this.totalPrice = 0;
 }
 
 }
