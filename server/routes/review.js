@@ -18,18 +18,24 @@ router.get('/reviews', (req, res, next) => {
     .catch(e => res.status(500).json({error:e.message}));
 });
 
-//Create new review
-router.post('/reviews', (req, res, next) => {
-  const newReview = req.body;
-  const theReview = new Review(newReview);
 
+//Create new review
+router.post('/products/:id', (req, res, next) => {
+  const theReview = new Review({
+    author: req.user._id,
+    text: req.body.review,
+    product: req.params.id
+  });
   theReview.save()
     .then( p => res.status(200).json({
       message: 'New Review created!',
       review: p
     }))
 
-    .catch( e => res.status(500).json({error:e.message}));
+    .catch( e => {
+      console.log(e)
+      res.status(500).json({error:e.message})
+    });
 });
 
 //Get single review by id
@@ -58,8 +64,9 @@ router.delete('/reviews/:id',checkIDParam, (req, res) => {
 
 //Get reviews from product ID
 router.get('/products/:id', (req, res, next) => {
-  console.log('entrando en este get de product id')
+  console.log('entrando en este get de product id show reviews')
   Review.find({product:req.params.id})
+  .populate('author')
   .then(p => res.status(200).json(p))
   .catch(e => res.status(500).json({error:e.message}));
 });

@@ -12,6 +12,7 @@ const BASEURL = `${DOMAIN}${PATH}`;
 export class ProductsService {
 
   private product: Object;
+  private review: Object;
   private options = {withCredentials: true};
 
   constructor(public http: Http) {}
@@ -43,6 +44,11 @@ export class ProductsService {
 
  getReviews(id): Observable<any> {
    return this.http.get(`${DOMAIN}/products/${id}`, this.options)
+     .map(res => res.json());
+ }
+
+ createReviews(review, id) {
+   return this.http.post(`${DOMAIN}/products/${id}`, review, this.options)
      .map(res => res.json());
  }
 

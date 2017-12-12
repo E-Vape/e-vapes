@@ -21,7 +21,7 @@ const users = [
     email: 'mataclemy@gmail.com',
     role: 'admin',
   },
-]
+];
 const products = [
     {
         brand: 'IJOY',

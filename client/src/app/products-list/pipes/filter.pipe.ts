@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(items: any[], field: string, value: string): any[] {
+  transform(items: any[], field: Array<string>, value: string): any[] {
 
     if (!items) {
       return [];
@@ -15,7 +15,7 @@ export class FilterPipe implements PipeTransform {
       return items;
     }
     const myPattern = new RegExp(value, 'i');
-    return items.filter(it => it[field].match(myPattern));
+    return items.filter(it => it[field[0]].match(myPattern) || it[field[1]].match(myPattern));
   }
 
 }

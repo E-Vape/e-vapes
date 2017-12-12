@@ -10,11 +10,11 @@ router.post('/sendEmail', (req, res, next) => {
     Mail.findById(req.params.id)
     .populate('userId')
     .then((questionData) => {
-   
+
       if (typeof(questionData.userId.email) != "undefined"){
         console.log('Hello!');
       nodemailer.createTestAccount((err, account) => {
-          
+
 
 
     // create reusable transporter object using the default SMTP transport
@@ -29,9 +29,9 @@ router.post('/sendEmail', (req, res, next) => {
     let mailOptions = {
         from: 'e.vapes.online@gmail.com', // sender address
         to: questionData.userId.email, // list of receivers
-        subject: 'Hello ✔', // Subject line
-        text: 'hola Clementina', // plain text body
-        html: 'HOLAAAAAAAA' // html body
+        subject: 'Your E-Vapes order confirmation ✔', // Subject line
+        text: 'Thank you for your order! You will soon recieve your shop!', // plain text body
+        html: 'Order confirmation' // html body
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
