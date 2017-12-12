@@ -16,13 +16,12 @@ router.post('/sendEmail', (req, res, next) => {
         }
     });
 
-
     let mailOptions = {
         from: 'e.vapes.online@gmail.com', // sender address
         to: req.user.email, // list of receivers
         subject: 'Your E-Vapes order confirmation ✔', // Subject line
         text: 'Order confirmation', // plain text body
-        html: 'Thank you for your order! You will soon recieve your shop!' // html body
+        html: 'Thank you for your order! You will soon recieve your shop!', // html body
     };
 
     transporter.sendMail(mailOptions, function (error, info) {

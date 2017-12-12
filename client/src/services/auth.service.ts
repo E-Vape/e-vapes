@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+import { ShoppingCartService } from './shopping-cart.service';
 
 
 const BASE_DOMAIN = 'http://localhost:3000';
@@ -17,7 +18,7 @@ export class AuthService {
   user: Object;
   loginEvent: EventEmitter<Object> = new EventEmitter();
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private shoppingCartService: ShoppingCartService) {
     this.isLoggedIn().subscribe();
   }
 
@@ -67,7 +68,7 @@ export class AuthService {
       .catch(this.handleError);
   }
   sendMail() {
-    return this.http.post(`${BASE_DOMAIN}/email/sendEmail`, this.user,  this.options)
+    return this.http.post(`${BASE_DOMAIN}/email/sendEmail`, this.user, this.options)
     .map(res => res.json())
   }
 }

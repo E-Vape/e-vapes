@@ -1,5 +1,5 @@
 <!-- <h1> Authentication Front </h1> -->
-<div *ngIf="!auth.user">
+<!-- <div *ngIf="!auth.user">
   <form>
     <h2> Signup </h2>
     <label> Username </label>
@@ -19,4 +19,28 @@
 <div *ngIf="auth.user">
   <h2>Welcome {{auth.user.username}}</h2>
   <a href="/login" (click)="logout()">Logout {{auth.user.username}}</a>
-</div>
+</div> -->
+
+<div class="container" *ngIf="!auth.user">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrap">
+          <p class="form-title">Signup</p>
+          <form action="/auth/signup" method="POST" class="signup">
+            <input id="username" [(ngModel)]="username" type="text" name="username" placeholder="Usuario">
+            <input id="password" [(ngModel)]="password" type="password" name="password" placeholder="Contraseña">
+            <input id="mail" [(ngModel)]="email" type="text" name="email" placeholder="E-mail">
+            <br>
+            <button (click)="signup(username,password,email,role)" type="submit" value="Sign up" class="btn btn-lg btn-info btn-sm">SIGNUP</button>
+            <div class="check-signup">
+              <p class="account-message">
+                Ya tienes una cuenta?
+                <a class="click" [routerLink]="['..','login']">Login |</a>
+                <a class="click" [routerLink]="['..','login']" (click)="logout()">Logout </a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
