@@ -29,10 +29,7 @@ constructor(
   .subscribe(user => this.user = user);
 }
 
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 
  clearCart() {
   this.shoppingCartService.clearCart();

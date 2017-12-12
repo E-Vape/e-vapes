@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 
-
-
-
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
@@ -12,7 +9,6 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ReviewsComponent implements OnInit {
   reviews;
-
 
   constructor(
     private router: Router,
@@ -22,9 +18,7 @@ export class ReviewsComponent implements OnInit {
 
   }
 
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 
   getReviews(id) {

@@ -9,10 +9,9 @@ import { AuthService } from '../../services/auth.service';
 
 export class SignupComponent implements OnInit {
 
-  constructor( private auth: AuthService) { }
+constructor( private auth: AuthService) { }
 
-  ngOnInit() {
-  }
+ngOnInit() {}
 
 signup (username, password, email) {
 this.auth.signup(username, password, email).subscribe();

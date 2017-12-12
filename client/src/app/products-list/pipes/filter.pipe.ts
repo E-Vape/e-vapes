@@ -19,24 +19,3 @@ export class FilterPipe implements PipeTransform {
   }
 
 }
-
-
-
-
-
-// if (items && items.length){
-//   return items.filter(item =>{
-//       if (brand && item.brand.indexOf(brand) === -1){
-//           return false;
-//       }
-//       if (model && item.model.indexOf(model) === -1){
-//           return false;
-//       }
-//       return true;
-//  })
-// }
-// else{
-//   return items;
-// }
-//   }
-// }
