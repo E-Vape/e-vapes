@@ -9,6 +9,6 @@ const mailSchema = new Schema({
     subject: String,
     html: String,
   });
-  
+
   const Mail = mongoose.model('Mail', mailSchema);
   module.exports = Mail;

@@ -7,16 +7,6 @@ const Mail = require('../models/Mail');
 
 router.post('/sendEmail', (req, res, next) => {
 
-    Mail.findById(req.params.id)
-    .populate('userId')
-    .then((questionData) => {
-
-      if (typeof(questionData.userId.email) != "undefined"){
-        console.log('Hello!');
-      nodemailer.createTestAccount((err, account) => {
-
-
-
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         service: "Gmail",
@@ -28,10 +18,10 @@ router.post('/sendEmail', (req, res, next) => {
 
     let mailOptions = {
         from: 'e.vapes.online@gmail.com', // sender address
-        to: questionData.userId.email, // list of receivers
+        to: 'mataclemy@gmail.com', // list of receivers
         subject: 'Your E-Vapes order confirmation ✔', // Subject line
-        text: 'Thank you for your order! You will soon recieve your shop!', // plain text body
-        html: 'Order confirmation' // html body
+        text: 'Order Confirmation', // plain text body
+        html: 'Thank you for your order! You will soon recieve your shop!' // html body
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
@@ -44,8 +34,6 @@ router.post('/sendEmail', (req, res, next) => {
     });
 
 });
-      }
-    })
-})
+
 
 module.exports = router;
