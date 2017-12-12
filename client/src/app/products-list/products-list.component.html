@@ -20,8 +20,9 @@
     <div class="row">
         <!-- BEGIN PRODUCTS -->
         <div *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index" class="col-md-3 col-sm-6">
+
           <span class="thumbnail">
-              <img class="image" src="{{product.image}}" alt="...">
+              <img class="image" src="{{product.image}}" [routerLink]="['..','product',product._id]" alt="...">
               <h4>{{product.brand}}</h4>
               <h5>{{product.model}}</h5>
 
@@ -33,13 +34,14 @@
                       <span class="glyphicon glyphicon-star-empty"></span>
                   </div> -->
               <p>{{product.type.category}}</p>
+
               <hr class="line">
               <div class="row">
                 <div class="col-md-6 col-sm-6">
                   <p class="price">{{product.price}}€</p>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                  <button class="btn btn-success right" > BUY ITEM</button>
+                  <button class="btn btn-success right" (click)= 'addProduct(product)'> BUY ITEM</button>
                 </div>
 
               </div>
