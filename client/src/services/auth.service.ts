@@ -67,7 +67,7 @@ export class AuthService {
       .catch(this.handleError);
   }
   sendMail() {
-    return this.http.post(`${BASE_DOMAIN}/email/sendEmail`, this.options)
+    return this.http.post(`${BASE_DOMAIN}/email/sendEmail`, this.user,  this.options)
     .map(res => res.json())
   }
 }
