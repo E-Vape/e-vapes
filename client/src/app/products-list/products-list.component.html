@@ -1,7 +1,7 @@
- <h1>PRODUCTS</h1>
- <a [routerLink]="['/product/new']" >Create product</a>
+ <!-- <h1>PRODUCTS</h1> -->
+ <!-- <a [routerLink]="['/product/new']" >Create product</a> -->
  <!-- *ngIf='authService.user.role == "admin"' -->
- <br>
+ <!-- <br>
  Search here: <input [(ngModel)]="search"> <br>
   <div class="products" *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index">
     <h3>Brand: {{product.brand}}</h3>
@@ -15,5 +15,36 @@
     <button (click)= 'addProduct(product)'>Add to Cart</button>
   </div>
 
+ -->
+ <div class="container">
+    <div class="row">
+        <!-- BEGIN PRODUCTS -->
+        <div *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index" class="col-md-3 col-sm-6">
+          <span class="thumbnail">
+              <img class="image" src="{{product.image}}" alt="...">
+              <h4>{{product.brand}}</h4>
+              <h5>{{product.model}}</h5>
 
+              <!-- <div class="ratings">
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                  </div> -->
+              <p>{{product.type.category}}</p>
+              <hr class="line">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <p class="price">{{product.price}}€</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <button class="btn btn-success right" > BUY ITEM</button>
+                </div>
 
+              </div>
+          </span>
+        </div>
+
+    </div>
+  </div>

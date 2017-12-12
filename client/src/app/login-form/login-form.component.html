@@ -1,13 +1,21 @@
-<div *ngIf="!auth.user">
-  <form>
-    <h2> Login</h2>
-    <label> Username: </label>
-    <input type="text" [(ngModel)]="username" name="username"/>
-    <br>
-    <label> Password: </label>
-    <input type="password" [(ngModel)]="password" name="password"/>
-
-    <button (click)="login(username,password)"> login </button>
-  </form>
-  <p class="error"> {{ error }} </p>
-</div>
+<div class="container" *ngIf="!auth.user">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrap">
+          <p class="form-title">Login</p>
+          <form action="/auth/login" method="POST" class="login">
+            <input id="username" [(ngModel)]="username" type="text" name="username" placeholder="Usuario">
+            <input id="password" [(ngModel)]="password" type="password" name="password" placeholder="Contraseña">
+            <br>
+            <button (click)="login(username,password)" type="submit" value="Sign up" class="btn btn-lg btn-info btn-sm"> LOGIN </button>
+            <div class="check-login">
+              <p class="account-message">
+                No tienes una cuenta?
+                <a class="click" [routerLink]="['..','signup']">Signup</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
