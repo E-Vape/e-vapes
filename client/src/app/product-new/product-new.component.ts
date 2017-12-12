@@ -13,9 +13,11 @@ export class ProductNewComponent implements OnInit {
   newProduct= {brand:'', model:'', description:'', price:'', rating:'', image:'', type:{ category:'', subcategory:''}};
 
 
-  constructor(private router:Router, private route:ActivatedRoute, private productsService: ProductsService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private productsService: ProductsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   createObject(brand, model, category, subcategory, description, price, rating, image) {
     this.newProduct = {brand:brand, model:model, description:description, price:price, rating:rating, image:image,
@@ -25,11 +27,9 @@ export class ProductNewComponent implements OnInit {
       }
     }
 
-    console.log(this.newProduct)
     this.productsService.createNewProduct(this.newProduct)
       .subscribe(res => {
         this.router.navigate(['/products']);
-        console.log(res);
       });
   }
 

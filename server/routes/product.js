@@ -21,12 +21,10 @@ router.get('/products', (req, res, next) => {
 });
 
 //Create new product
-router.post('/product/new', upload.single('photo'), (req, res, next) => {
-  console.log(req.body)
-  const {brand, model, description, price, rating, type} = req.body;
-  const {image} = req.file;
+router.post('/product/new', (req, res, next) => {
+  const {brand, model, description, price, rating, type, image} = req.body;
   const theProduct = new Product({
-    brand, model, description, price, rating, type, image: `/uploads/${req.file.filename}`,
+    brand, model, description, price, rating, type, image,
    
   });
 
