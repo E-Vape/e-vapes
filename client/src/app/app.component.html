@@ -16,6 +16,8 @@
   <a [routerLink]="['api/auth/signup']">Signup</a>
   <a [routerLink]="['products']">Products</a>
 </div>
+Search here: <input [(ngModel)]="search"> <br>
+  <div class="products" *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index">
 
 <router-outlet></router-outlet> -->
 
@@ -25,24 +27,28 @@
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>
-        <img class="navbar-brand" src="https://www.custom-vapes.co.uk/wp-content/uploads/2017/05/Custom-Vapes-Logo-New-Website-Red-w-less-Shadow.png">
+        </button> -->
+        <img [routerLink]="['']" class="navbar-brand" src="https://www.custom-vapes.co.uk/wp-content/uploads/2017/05/Custom-Vapes-Logo-New-Website-Red-w-less-Shadow.png">
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <form class="navbar-form navbar-left">
-             <div class="form-group">
+            <input class="form-control" [(ngModel)]="search" placeholder="Search">
+            <div class="form-group" *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index">
+            </div>
+             <!-- <div class="form-group">
                <input type="text" class="form-control" placeholder="Search">
-             </div>
+             </div> -->
            </form>
         <ul class="nav navbar-nav">
           <li class="active"><a [routerLink]="['products']">Products <span class="sr-only">(current)</span></a></li>
+          <li><a [routerLink]="['suggestions']">Suggestions</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
