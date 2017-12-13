@@ -16,7 +16,6 @@ const checkIDParam = (req,res,next) =>{
 
 authRoutes.post('/signup', (req, res, next) => {
   const {username, password, email} = req.body;
-  console.log(req.body);
   if (!username || !password || !email) {
     res.status(400).json({ message: 'Provide username and password' });
     return;

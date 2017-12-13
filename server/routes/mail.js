@@ -15,7 +15,6 @@ router.post('/sendEmail', (req, res, next) => {
             pass: 'evapesonline'  // generated ethereal password
         }
     });
-
     let mailOptions = {
         from: 'e.vapes.online@gmail.com', // sender address
         to: req.user.email, // list of receivers
