@@ -12,7 +12,6 @@ const review = require('./routes/review');
 const address = require('./routes/address');
 const cart = require('./routes/cart');
 const mail = require('./routes/mail');
-
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
@@ -44,6 +43,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(session({
   secret: 'vapesSecret',

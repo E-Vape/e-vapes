@@ -22,7 +22,7 @@ editProduct = {
       subcategory:'',
     }
   };
-  constructor( private router: Router, private routes: ActivatedRoute, private productService: ProductsService,
+  constructor( public router: Router, public routes: ActivatedRoute, public productService: ProductsService,
   ) { }
 
   ngOnInit() {

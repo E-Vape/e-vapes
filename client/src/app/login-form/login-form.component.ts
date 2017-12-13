@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginFormComponent{
 
 
-  constructor(private router:Router, private route:ActivatedRoute, private auth: AuthService) { }
+  constructor(public router:Router, public route:ActivatedRoute, public auth: AuthService) { }
 
   login(username, password) {
     this.auth.login(username, password).subscribe();

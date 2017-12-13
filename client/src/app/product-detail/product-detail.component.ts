@@ -22,10 +22,10 @@ export class ProductDetailComponent implements OnInit {
   public shoppingCart = [];
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private authService: AuthService,
-    private productsService: ProductsService,
+    public router: Router,
+    public route: ActivatedRoute,
+    public authService: AuthService,
+    public productsService: ProductsService,
     public shoppingCartService: ShoppingCartService,
 
   ) {

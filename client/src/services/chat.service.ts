@@ -3,8 +3,8 @@ import { Injectable, EventEmitter } from '@angular/core';
  const BASE_DOMAIN = 'http://localhost:3000';
 
  interface Message{
-   message:string;
-   user:string;
+   message: string;
+   user: string;
  }
 
  @Injectable()
