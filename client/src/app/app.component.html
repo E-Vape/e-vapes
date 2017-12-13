@@ -33,9 +33,9 @@
           <li *ngIf="authService.user"><a [routerLink]="['profile']">{{authService.user.username}} </a></li>
           <!-- <li><a>|</a></li> -->
           <li *ngIf="!authService.user"><a [routerLink]="['api/auth/login']">Login</a></li>
-          <li *ngIf="!authService.user"><a>|</a></li>
+          <!-- <li *ngIf="!authService.user"><a>|</a></li> -->
           <li *ngIf="!authService.user"><a [routerLink]="['api/auth/signup']">Signup</a></li>
-          <li *ngIf="!authService.user"><a>|</a></li>
+          <!-- <li *ngIf="!authService.user"><a>|</a></li> -->
           <li><a [routerLink]="['/cart']">Cart</a></li>
           <!-- <li><a>|</a></li> -->
           <li><a [routerLink]="['']" (click)="logout()">Log Out</a></li>
@@ -45,3 +45,4 @@
   </nav>
 
      <router-outlet></router-outlet>
+     <app-chat></app-chat>

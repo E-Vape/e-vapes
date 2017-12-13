@@ -23,6 +23,8 @@ import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
 import { AddressComponent } from './address/address.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatService } from '../services/chat.service';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { AddressComponent } from './address/address.component';
     FilterPipe,
     SuggestionsComponent,
     AddressComponent,
+    ChatComponent,
 
   ],
   imports: [
@@ -52,7 +55,7 @@ import { AddressComponent } from './address/address.component';
       apiKey: 'AIzaSyAcrn9FTK0uiQlttKlDCZ14IThSMc1007E'
     })
   ],
-  providers: [AuthService, ProductsService, ShoppingCartService],
+  providers: [AuthService, ProductsService, ShoppingCartService, ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
