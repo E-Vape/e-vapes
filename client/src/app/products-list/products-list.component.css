@@ -128,6 +128,9 @@ margin-bottom: 5px;
   text-align: center;
 }
 
+.buy-item-btn:active {
+}
+
 @media screen and (max-width: 770px) {
 .right{
   float:left;

@@ -39,13 +39,7 @@
               <div class="hoverly-item">
               <a class="btn btn-default view-details-btn" [routerLink]="['..','product',product._id]">View Details</a>
               </div>
-              <!-- <div class="ratings">
-                      <span class="glyphicon glyphicon-star"></span>
-                      <span class="glyphicon glyphicon-star"></span>
-                      <span class="glyphicon glyphicon-star"></span>
-                      <span class="glyphicon glyphicon-star"></span>
-                      <span class="glyphicon glyphicon-star-empty"></span>
-                  </div> -->
+
               <p>{{product.type.category}}</p>
 
               <hr class="line">
@@ -54,7 +48,7 @@
                   <p class="price">{{product.price}}€</p>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                  <button class="btn btn-success right" (click)= 'addProduct(product)'> BUY ITEM</button>
+                  <button class="btn btn-success right buy-item-btn" (click)='addProduct(product)'>BUY ITEM</button>
                 </div>
 
               </div>
