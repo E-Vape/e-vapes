@@ -38,6 +38,7 @@ export class ProductDetailComponent implements OnInit {
       this.productId = params['id'];
       this.getProductDetails(params['id'])
       this.getReviews(params['id'])
+      setInterval(() => this.getReviews(params['id']),50)
       this.id = params['id'];
       // this.createReviews(params['id'])
     });
