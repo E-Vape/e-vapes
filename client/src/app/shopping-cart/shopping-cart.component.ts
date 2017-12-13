@@ -13,15 +13,15 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 export class ShoppingCartComponent implements OnInit {
 
-private shoppingCart = [];
-private changesSave: Boolean = false;
-private user;
-private product;
+public shoppingCart = [];
+public changesSave: Boolean = false;
+public user;
+public product;
 
 constructor(
-  private router: Router,
-  private route: ActivatedRoute,
-  private productService: ProductsService,
+  public router: Router,
+  public route: ActivatedRoute,
+  public productService: ProductsService,
   public authService: AuthService,
   public shoppingCartService: ShoppingCartService
 ) {

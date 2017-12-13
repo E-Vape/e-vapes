@@ -10,7 +10,7 @@ import { AddressComponent } from '../address/address.component';
 })
 export class PaycartComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }
