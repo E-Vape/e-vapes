@@ -1,11 +1,11 @@
+body{
+  background-color: #f6f6f6;
+}
+
 agm-map {
   height: 250px;
   width: 250px;
 }
-
-/*.col-md-9 {
-  margin-left: 5px;
-}*/
 
 .separador-vertical{
   border-right:1px solid #bfbdbd;
@@ -27,5 +27,6 @@ agm-map {
   padding: 10px;
   border-radius:10px;
   margin-bottom:25px;
+  background-color: white;
 
       }
