@@ -25,7 +25,7 @@ router.post('/product/new', (req, res, next) => {
   const {brand, model, description, price, rating, type, image} = req.body;
   const theProduct = new Product({
     brand, model, description, price, rating, type, image,
-   
+
   });
 
   Product.findOne({ model }, '_id')
@@ -38,7 +38,7 @@ router.post('/product/new', (req, res, next) => {
     .then( p => res.status(200).json({
       message: 'New Product created!',
       product: p
-    }))
+    }));
   })
     .catch( e => res.status(500).json({error:e.message}));
 });
