@@ -23,7 +23,6 @@ import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
 import { AddressComponent } from './address/address.component';
-
 @NgModule({
   declarations: [
     AppComponent,
