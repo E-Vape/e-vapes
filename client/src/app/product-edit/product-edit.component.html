@@ -1,4 +1,4 @@
-<h2> Edit Product</h2>
+<!-- <h2> Edit Product</h2>
 <label> Brand: </label>
 <input type="text" [(ngModel)]="editProduct.brand" name="brand"/>
 <br>
@@ -42,4 +42,53 @@
 <input type="text" [(ngModel)]="editProduct.image" name="image"/>
 <br>
 
-  <button (click)="saveChanges()">Edit</button>
+  <button (click)="saveChanges()">Edit</button> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrap">
+          <p class="form-title">Edit product</p>
+          <div class="create-product">
+            <input id="brand" [(ngModel)]="editProduct.brand" type="text" name="brand" >
+            <input id="model" [(ngModel)]="editProduct.model" type="text" name="model" >
+
+              <select type="text" [(ngModel)]="editProduct.type.category" #name="ngModel" name="category" >
+                <option type="text" value="Select category" disabled selected>Select category</option>
+                <option value="Mod">Mod</option>
+                <option value="Ato">Ato</option>
+                <option value="E-liquid">E-liquid</option>
+              </select>
+              <select type="text" [(ngModel)]="editProduct.type.subcategory" #name="ngModel" *ngIf='editProduct.type.category == "Mod"'>
+                <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+                <option value="Mechanic">Mechanic</option>
+                <option value="Electronic">Electronic</option>
+              </select>
+              <select type="text" [(ngModel)]="editProduct.type.subcategory" #name="ngModel" *ngIf='editProduct.type.category == "Ato"'>
+               <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+               <option value="Atomizer">Atomizer</option>
+               <option value="Claromizer">Claromizer</option>
+             </select>
+             <select type="text" [(ngModel)]="editProduct.type.subcategory" #name="ngModel" *ngIf='editProduct.type.category == "Eliquid"'>
+              <option type="text" value="Select sub-category" disabled selected >Select sub-category</option>
+              <option value="0mg">0mg</option>
+              <option value="3mg">3mg</option>
+            </select>
+
+            <textarea id="description" [(ngModel)]="editProduct.description" type="text" name="description"></textarea>
+            <input id="price" [(ngModel)]="editProduct.price" type="number" name="price" >
+            <input id="rating" [(ngModel)]="editProduct.rating" type="text" name="rating">
+            <input type="text" [(ngModel)]="editProduct.image" name="image" id="image" >
+
+            <!-- <input type="file" [(ngModel)]="editProduct.image" name="image" id="image"/> -->
+
+            <button (click)="saveChanges()" class="btn btn-lg btn-info btn-sm">Edit product</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
