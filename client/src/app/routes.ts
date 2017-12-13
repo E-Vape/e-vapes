@@ -11,7 +11,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { PaycartComponent } from './paycart/paycart.component';
 import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { AddressComponent } from './address/address.component';
-import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -28,7 +27,6 @@ export const routes: Routes = [
   { path: 'paymethod/user/cart', component: PaycartComponent},
   { path: 'suggestions', component: SuggestionsComponent},
   { path: 'address', component: AddressComponent},
-  { path: 'atencioncliente', component: ChatComponent},
 
 
   { path: '**', redirectTo: '' },

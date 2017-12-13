@@ -1,3 +1,35 @@
+.modal.fade .modal-dialog {
+  transform: translate3d(0, 100vh, 0);
+}
+
+.modal.in .modal-dialog {
+  transform: translate3d(0, 0, 0);
+}
+
+#prueba{
+  bottom:0;
+  right: 0;
+  position: fixed;
+  z-index: 10;
+  margin-right: 2%;
+  margin-bottom: 1%;
+  width: 20%;
+  height: 9%;
+}
+
+#pruebados{
+  top:0;
+  right: 0;
+  position: fixed;
+}
+#pruebatres{
+  top:0;
+  right: 0;
+  margin-right: 5%;
+  position: fixed;
+}
+
+
 body{
   margin-top: 6%;
 }
