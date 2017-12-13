@@ -1,8 +1,24 @@
-<p>
-  chat works!
-</p>
-<ul>
+<div class="navfix"></div>
+
+<!-- <ul>
    <li *ngFor="let m of chat.messages"><b>{{m.user}}</b>: {{m.message}}</li>
  </ul>
  <input type="text" [(ngModel)]="m">
- <button (click)="chat.sendMessage(m); m=''"> Send Message </button>
+ <button (click)="chat.sendMessage(m); m=''"> Send Message </button> -->
+
+ <body>
+     <div class="col-sm-4 col-sm-offset-4 frame">
+         <ul>
+         <li *ngFor="let m of chat.messages"><b>{{m.user}}</b>: {{m.message}}</li>
+         </ul>
+         <div>
+             <div class="msj-rta macro" style="margin:auto">
+                 <div class="text text-r" style="background:whitesmoke !important">
+                     <input type="text" [(ngModel)]="m" class="mytext" placeholder="Type a message"/>
+
+                 </div>
+                 <button (click)="chat.sendMessage(m); m=''"> Send </button>
+             </div>
+         </div>
+     </div>
+ </body>
