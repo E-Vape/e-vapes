@@ -15,7 +15,13 @@ export class AuthService {
     withCredentials: true
   };
 
-  user: Object;
+  user ={
+    email:'',
+    password: '',
+    role:'',
+    username:'',
+    _id:''
+  };
   loginEvent: EventEmitter<Object> = new EventEmitter();
 
   constructor(private http: Http, private shoppingCartService: ShoppingCartService) {
