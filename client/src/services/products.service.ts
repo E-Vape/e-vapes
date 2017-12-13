@@ -11,9 +11,9 @@ const BASEURL = `${DOMAIN}${PATH}`;
 @Injectable()
 export class ProductsService {
 
-  private product: Object;
-  private review: Object;
-  private options = {withCredentials: true};
+  public product: Object;
+  public review: Object;
+  public options = {withCredentials: true};
 
   constructor(public http: Http) {}
 

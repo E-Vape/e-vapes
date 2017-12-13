@@ -24,6 +24,10 @@
  <div class="container">
     <div class="row">
         <!-- BEGIN PRODUCTS -->
+        <input class="form-control" [(ngModel)]="search" placeholder="Search">
+        <div class="form-group" *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index">
+
+        </div>
         <div class="col-md-3 col-sm-6 product-box hover-circle text-center" *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index">
           <span class="thumbnail">
               <img class="image" src="{{product.image}}" [routerLink]="['..','product',product._id]" alt="...">
