@@ -1,3 +1,6 @@
+body{
+  background-color: #f6f6f6;
+}
 h4{
   font-weight: 600;
 }
@@ -36,6 +39,7 @@ margin-bottom: 5px;
   padding: 10px 10px;
   margin-bottom: 20px;
   margin-top: 15px;
+  background-color: white;
 }
 
 .product-box:hover .hoverly-item {
@@ -51,7 +55,7 @@ margin-bottom: 5px;
   position: absolute;
   top: 5%;
   opacity: 0;
-  background-color: rgba(0, 100, 100, 0.5);
+  background-color: rgba(0, 0, 0, 0.02);
   width: 85%;
   height: 77%;
   left: 8%;
