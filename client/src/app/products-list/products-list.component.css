@@ -55,7 +55,7 @@ margin-bottom: 5px;
   position: absolute;
   top: 5%;
   opacity: 0;
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.08);
   width: 85%;
   height: 77%;
   left: 8%;
@@ -111,11 +111,27 @@ margin-bottom: 5px;
   height:180px;
 }
 
+.plus-search-div {
+  width: 100%;
+}
+.search-input {
+  display: inline-block;
+  margin-top: 5px;
+  width: 94%;
+}
+
+.plus-btn {
+  display: inline-block;
+  height: 33px;
+  border-radius: 5px;
+  width: 4%;
+  text-align: center;
+}
+
 @media screen and (max-width: 770px) {
 .right{
   float:left;
   width: 100%;
 }
 }
-
 

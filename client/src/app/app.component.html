@@ -1,28 +1,4 @@
 
-<!-- <h2>
-  {{title}}
-</h2>
-<div *ngIf="authService.user">
-  {{authService.user.username}}
-  <a [routerLink]="['products']">Products</a>
-  <a [routerLink]="['profile']">Profile</a>
-  <a [routerLink]="['/cart']">Cart</a>
-  <a [routerLink]="['suggestions']">Suggestions</a>
-  <a [routerLink]="['']" (click)="logout()">Log Out</a>
-</div>
-
-<div *ngIf="!authService.user">
-  <a [routerLink]="['api/auth/login']">Login</a>
-  <a [routerLink]="['api/auth/signup']">Signup</a>
-  <a [routerLink]="['products']">Products</a>
-</div>
-Search here: <input [(ngModel)]="search"> <br>
-  <div class="products" *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index">
-
-<router-outlet></router-outlet> -->
-
-
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,7 +9,7 @@ Search here: <input [(ngModel)]="search"> <br>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <img [routerLink]="['']" class="navbar-brand" src="https://www.custom-vapes.co.uk/wp-content/uploads/2017/05/Custom-Vapes-Logo-New-Website-Red-w-less-Shadow.png">
+        <img [routerLink]="['']" class="navbar-brand navbar-img" src="https://res.cloudinary.com/dhhgusvci/image/upload/v1513171486/evapeprueba_pffpmy.png">
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -49,7 +25,7 @@ Search here: <input [(ngModel)]="search"> <br>
              </div>
            </form>
         <ul class="nav navbar-nav">
-          <li class="active"><a [routerLink]="['products']">Products <span class="sr-only">(current)</span></a></li>
+          <li><a [routerLink]="['products']">Products <span class="sr-only">(current)</span></a></li>
           <li><a [routerLink]="['suggestions']">Suggestions</a></li>
         </ul>
 
@@ -67,9 +43,6 @@ Search here: <input [(ngModel)]="search"> <br>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
-
-
 
      <router-outlet></router-outlet>
 
