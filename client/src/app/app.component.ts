@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { ProductsService } from '../services/products.service';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 
 
 
@@ -11,7 +13,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class AppComponent {
   title = 'E-vapes';
-  constructor(public authService: AuthService) {}
+  constructor(public ProductsService: ProductsService, public authService: AuthService, public shoppingCartService: ShoppingCartService,) {}
 
   logout() {
     this.authService.logout().subscribe();
