@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
 const mongoose = require('mongoose');
-const multer  = require('multer')
+const multer  = require('multer');
 const upload = multer({ dest:'./public/uploads'});
 // const isLoggedIn = require('../middlewares/isLoggedIn');
 
@@ -43,6 +43,15 @@ router.post('/product/new', (req, res, next) => {
     }));
   })
     .catch( e => res.status(500).json({error:e.message}));
+});
+//searchTerm
+router.get('/products/search', (req, res) => {
+let searchTerm = req.query.term;
+Product.find({ $or: [ { brand: { $regex: new RegExp(searchTerm), $options: 'i' } }, { model: { $regex: new RegExp(searchTerm), $options: 'i' } } ] })
+.then(products => {
+  res.status(200).json(products);
+});
+
 });
 
 //Get single product by id
