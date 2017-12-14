@@ -61,9 +61,8 @@ app.use('/', review);
 app.use('/', address);
 app.use('/', cart);
 
-app.use(function(req, res) {
-  res.sendfile(__dirname + '/public/index.html');
-});
+app.use((req, res) =>res.sendfile(__dirname + '/public/index.html'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
