@@ -1,54 +1,45 @@
-<!-- <div class="show-user" *ngIf='authService.user'>
-  <p>Username: {{ authService.user.username }}</p>
-  <p>Email: {{authService.user.email}}</p>
-  <p>Role: {{ authService.user.role }}</p>
-  <a [routerLink]="['/api/auth']">Edit Profile</a>
-</div>
+<div class="navfix"></div>
 
-  <button (click)="sendEmail()" type="submit">Send Email</button> -->
-
-
-  <div class="navfix"></div>
-
-  <body>
+<body>
 
   <div class="container">
-	<div class="row center">
-       <div class="col-md-7 centered">
-<div class="panel panel-default">
-  <div class="panel-heading">  <h4 >User Profile</h4></div>
-   <div class="panel-body">
-    <div class="box box-info">
-            <div class="box-body" *ngIf='authService.user'>
+    <div class="row center">
+      <div class="col-md-7 centered">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>User Profile</h4></div>
+          <div class="panel-body">
+            <div class="box box-info">
+              <div class="box-body" *ngIf='authService.user'>
                 <div class="col-sm-6">
-                    <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
-                    </div>
-              <br>
+                  <div align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">
+                  </div>
+                  <br>
+                </div>
+                <div class="col-sm-6">
+                  <h4 style="color:#00b1b1;" [routerLink]="['/api/auth']">Edit Profile <span class="glyphicon glyphicon-pencil" id="edit-prod-btn"></span></h4>
+                  <h4 style="color:#00b1b1;" [routerLink]="['/cart']">Go to my cart <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true" ></span></h4>
+                </div>
+
+                <div class="clearfix"></div>
+                <hr style="margin:5px 0 5px 0;">
+                <div class="col-sm-5 col-xs-6 tital "> Username:</div>
+                <div class="col-sm-7 col-xs-6 ">{{ authService.user.username }}</div>
+
+                <div class="clearfix"></div>
+                <div class="bot-border"></div>
+                <div class="col-sm-5 col-xs-6 tital ">E-mail:</div>
+                <div class="col-sm-7"> {{authService.user.email}}</div>
+
+                <div class="clearfix"></div>
+                <div class="bot-border"></div>
+                <div class="col-sm-5 col-xs-6 tital ">Role:</div>
+                <div class="col-sm-7"> {{ authService.user.role }}</div>
+              </div>
             </div>
-            <div class="col-sm-6">
-                <h4 style="color:#00b1b1;" [routerLink]="['/api/auth']" >Edit Profile <span class="glyphicon glyphicon-pencil" id="edit-prod-btn"></span></h4>
-                <h4 style="color:#00b1b1;" [routerLink]="['/cart']" >Go to my cart <span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true" ></span></h4>
-            </div>
-
-            <div class="clearfix"></div>
-            <hr style="margin:5px 0 5px 0;">
-<div class="col-sm-5 col-xs-6 tital " > Username:</div>
-<div class="col-sm-7 col-xs-6 ">{{ authService.user.username }}</div>
-
-<div class="clearfix"></div>
-<div class="bot-border"></div>
-<div class="col-sm-5 col-xs-6 tital " >E-mail:</div>
-<div class="col-sm-7"> {{authService.user.email}}</div>
-
-<div class="clearfix"></div>
-<div class="bot-border"></div>
-<div class="col-sm-5 col-xs-6 tital " >Role:</div>
-<div class="col-sm-7"> {{ authService.user.role }}</div>
           </div>
         </div>
+      </div>
     </div>
-    </div>
-</div>
-   </div>
-</div>
+  </div>
 </body>

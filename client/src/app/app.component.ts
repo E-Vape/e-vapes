@@ -11,9 +11,13 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'E-vapes';
   user;
+  searchTerm = '';
+  findItems;
+
   constructor(public ProductsService: ProductsService, public authService: AuthService, public shoppingCartService: ShoppingCartService,) {}
 
   ngOnInit () {
@@ -22,6 +26,17 @@ export class AppComponent {
     })
   }
 
+search(){
+  this.ProductsService.searchProd(this.searchTerm)
+  .subscribe(arraySearch => {
+    this.findItems = arraySearch.slice(0,5);
+  })
+
+  console.log(this.searchTerm);
+}
+removeSearch() {
+    this.searchTerm = '';
+}
   logout() {
     this.authService.logout().subscribe();
   }

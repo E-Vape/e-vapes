@@ -57,4 +57,9 @@ export class ProductsService {
       .map(res => res.json());
   }
 
+searchProd(term){
+  return this.http.get(`${DOMAIN}/products/search?term=${term}`, this.options)
+  .map(res => res.json());
+}
+
 }

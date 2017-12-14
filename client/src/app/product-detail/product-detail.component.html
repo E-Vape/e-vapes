@@ -1,32 +1,3 @@
-<!-- <h1>PRODUCT DETAIL</h1>
- <div class="product" *ngIf="product">
- <h3>Brand: {{product.brand}}</h3>
- <h4>Model: {{product.model}}</h4>
- <h4>Category: {{product.type.category}}</h4>
- <h4>Sub-category: {{product.type.subcategory}}</h4>
- <h4>Price: {{product.price}} €</h4>
- <h4>Rating: {{product.rating}}/5</h4>
- <p>Description: {{product.description}}</p>
- <p>Reviews:</p>
- <div *ngFor='let review of review'>
-   <p>Author: {{review.author.username}}</p>
-   <p>{{review.text}}</p>
-
- </div>
- <a><img class="product-img" src="{{product.image}}"></a>
- <br>
-
- <label> Review: </label>
- <textarea type="text" [(ngModel)]="newReview" name="review" ></textarea>
- <button (click)= 'createReviews()'>Submit Review</button>
-
- <hr>
- <a [routerLink]="['/products']">Back to list</a>
- <a [routerLink]="['/product/edit',product._id]">Edit product</a>
- <button (click)= 'addProduct(product)'>Add to Cart</button>
- <button (click)= 'deleteProduct()'>Delete</button>
- </div> -->
-
  <html>
      <body>
        <div class="navfix"></div>
@@ -38,7 +9,7 @@
                  </div>
 
                  <div *ngIf="product" class="col-xs-5" style="border:0px solid gray">
-                     <!-- Datos del vendedor y titulo del producto -->
+                     <!-- Datos del del producto -->
                      <h3>{{product.brand}}</h3>
                      <h4>{{product.model}}</h4>
                      <h5 style="color:#337ab7">{{product.type.category}} · <small style="color:#337ab7">{{product.type.subcategory}}</small></h5>
