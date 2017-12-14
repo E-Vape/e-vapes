@@ -4,6 +4,8 @@ const Cart = require('../models/Cart');
 const Product = require('../models/Product');
 const User = require('../models/User');
 const mongoose = require('mongoose');
+// const isLoggedIn = require('../middlewares/isLoggedIn');
+
 
 const checkIDParam = (req,res,next) =>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {

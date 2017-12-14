@@ -4,6 +4,8 @@ const Product = require('../models/Product');
 const mongoose = require('mongoose');
 const multer  = require('multer')
 const upload = multer({ dest:'./public/uploads'});
+// const isLoggedIn = require('../middlewares/isLoggedIn');
+
 
 const checkIDParam = (req,res,next) =>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {

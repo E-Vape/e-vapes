@@ -11,10 +11,11 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { PaycartComponent } from './paycart/paycart.component';
 import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { AddressComponent } from './address/address.component';
-
+import { HomeComponent } from './home/home.component';
 
 
 export const routes: Routes = [
+  { path: 'home', component: HomeComponent},
   { path: 'api/auth/signup', component: SignupComponent },
   { path: 'api/auth/login', component: LoginFormComponent },
   { path: 'products', component: ProductsListComponent},
@@ -29,5 +30,5 @@ export const routes: Routes = [
   { path: 'address', component: AddressComponent},
 
 
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '/home' },
 ]

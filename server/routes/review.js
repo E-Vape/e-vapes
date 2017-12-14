@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Review = require('../models/Review');
 const mongoose = require('mongoose');
+// const isLoggedIn = require('../middlewares/isLoggedIn');
+
 
 const checkIDParam = (req,res,next) =>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -64,7 +66,6 @@ router.delete('/reviews/:id',checkIDParam, (req, res) => {
 
 //Get reviews from product ID
 router.get('/products/:id', (req, res, next) => {
-  console.log('entrando en este get de product id show reviews')
   Review.find({product:req.params.id})
   .populate('author')
   .then(p => res.status(200).json(p))

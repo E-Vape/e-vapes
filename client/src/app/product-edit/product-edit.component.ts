@@ -34,7 +34,6 @@ editProduct = {
     getProductDetails(id) {
       this.productService.getOne(id)
         .subscribe(product => {
-          console.log(product)
           this.product = product._id;
           this.editProduct = {
             brand: product.brand,

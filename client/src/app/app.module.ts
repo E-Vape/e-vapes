@@ -25,6 +25,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AddressComponent } from './address/address.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChatService } from '../services/chat.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ChatService } from '../services/chat.service';
     SuggestionsComponent,
     AddressComponent,
     ChatComponent,
+    HomeComponent,
 
   ],
   imports: [

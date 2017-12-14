@@ -39,7 +39,6 @@ authRoutes.post('/signup', (req, res, next) => {
 
     theUser.save()
     .then(newUser => {
-      console.log(newUser);
       req.login(newUser, (err) => {
         if (err) {
           console.log(err);
@@ -97,7 +96,6 @@ authRoutes.get('/loggedin', (req, res, next) => {
 
 authRoutes.put('/:id', checkIDParam, (req, res) => {
   const {username, password, email} = req.body;
-  console.log(req.body);
   if (!username || !password || !email) {
     res.status(400).json({ message: 'Provide username and password' });
     return;
