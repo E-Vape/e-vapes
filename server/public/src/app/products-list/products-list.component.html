@@ -1,0 +1,41 @@
+<body>
+
+ <div class="navfix"></div>
+ <div class="container">
+    <div class="row">
+        <!-- BEGIN PRODUCTS -->
+        <div class="plus-search-div ">
+        <input class="form-control search-input" [(ngModel)]="search" placeholder="Filter">
+        <button class="create-product-btn plus-btn" [routerLink]="['/product/new']" ><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+        </div>
+        <div class="form-group" *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index">
+
+        </div>
+        <div class="col-md-3 col-sm-6 product-box hover-circle text-center" *ngFor="let product of products | filter:['brand', 'model']:search; let idx = index">
+          <span class="thumbnail">
+              <img class="image" src="{{product.image}}" [routerLink]="['..','product',product._id]" alt="...">
+              <h4>{{product.brand}}</h4>
+              <h5>{{product.model}}</h5>
+              <div class="hoverly-item">
+              <a class="btn btn-default view-details-btn" [routerLink]="['..','product',product._id]">View Details</a>
+              </div>
+
+              <p>{{product.type.category}}</p>
+
+              <hr class="line">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <p class="price">{{product.price}}€</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <button class="btn btn-success right buy-item-btn" (click)='addProduct(product)'>BUY ITEM</button>
+                </div>
+
+              </div>
+          </span>
+
+        </div>
+
+    </div>
+  </div>
+</body>

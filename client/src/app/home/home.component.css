@@ -1,16 +1,13 @@
 .back-img {
 position: absolute;
 width: 100%;
-height: 65%;
+height: 75%;
 background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6f/E-Cigarette-Electronic_Cigarette-E-Cigs-E-Liquid-Vaping-Cloud_Chasing-Vaping_at_Work-Work_Vaping_%2816348997445%29.jpg');
 background-repeat: no-repeat;
 background-size: cover;
 filter: grayscale(90%);
-}
+background-attachment: fixed;
 
-.home {
-position: absolute;
-bottom: 0;
 }
 
 .home-text {
@@ -26,6 +23,41 @@ font-family: Courier New, Courier, monospace;
 .home-text h3 {
   font-size: 4vh;
 }
-.home p {
 
+  .equipo-item{
+  border:	1px solid #D1CFCF ;
+  padding: 10px;
+  border-radius:10px;
+  margin-bottom:25px;
+  background-color: white;
+  }
+
+.home{
+    text-align:center;
+}
+.home img{
+    width: 68%;
+}
+.home p{
+    line-height: 170%;
+    margin-top:3%;
+    margin-bottom:3%;
+    font-family: Bookman Old Style;
+    font-size: 3vh;
+}
+.home img {
+   margin-bottom:2%;
+}
+.container{
+  position: absolute;
+  margin-top: 40%;
+  width:80%;
+  background-color: #f6f6f6;
+  margin-left: 10%;
+  margin-bottom: 3%;
+
+}
+.back{
+  background-color: #f6f6f6;
+  background-size: cover;
 }
