@@ -1,17 +1,3 @@
-<!-- <div class="edit">
-  <form *ngIf='authService.user'>
-    <h2> Edit Profile</h2>
-    <label> Username: </label>
-    <input type="text" [(ngModel)]="authService.user.username" name="username"/>
-    <label> Password: </label>
-    <input type="password" [(ngModel)]="password" name="password"/>
-    <label> Email: </label>
-    <input type="email" [(ngModel)]="authService.user.email" name="email"/>
-
-    <button (click) ="editUserByID(authService.user._id, authService.user.username, password, authService.user.email)" [routerLink]="['/profile']" > Edit </button>
-  </form>
-  <p class="error"> {{ error }} </p>
-</div> -->
 <div class="navfix"></div>
 
 <div class="container" *ngIf="authService.user">
