@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb:admin:admin@ds139436.mlab.com:39436/vapes', {useMongoClient: true});
+mongoose.connect('mongodb://admin:admin@ds139436.mlab.com:39436/vapes', {useMongoClient: true});
 const Product = require('../models/Product');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');

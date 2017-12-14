@@ -17,7 +17,7 @@ const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 const app = express();
 
-mongoose.Promise = Promise;
+// mongoose.Promise = Promise;
 mongoose.connect(process.env.DBURL, {useMongoClient:true}).then(() =>{
   console.log(`Connected to DB: ${process.env.DBURL}`);
 });
