@@ -3,8 +3,11 @@ import {Http} from '@angular/http';
 import {Observable} from 'rxjs';
 import { Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { environment } from '../environments/environment';
 
-const DOMAIN = 'http://localhost:3000';
+const DOMAIN = environment.baseurl;
+
+// const DOMAIN = 'http://localhost:3000';
 const PATH = '/products';
 const BASEURL = `${DOMAIN}${PATH}`;
 

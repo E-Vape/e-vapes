@@ -5,7 +5,10 @@ import { Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { log } from 'util';
 
-const DOMAIN = 'http://localhost:3000';
+import { environment } from '../environments/environment';
+
+const DOMAIN = environment.baseurl;
+// const DOMAIN = 'http://localhost:3000';
 const PATH = '/cart';
 const BASEURL = `${DOMAIN}${PATH}`;
 @Injectable()

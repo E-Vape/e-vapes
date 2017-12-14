@@ -5,8 +5,10 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { ShoppingCartService } from './shopping-cart.service';
 
+import { environment } from '../environments/environment';
 
-const BASE_DOMAIN = 'http://localhost:3000';
+const BASE_DOMAIN = environment.baseurl;
+// const BASE_DOMAIN = 'http://localhost:3000';
 const BASE_URL = `${BASE_DOMAIN}/api/auth`;
 
 @Injectable()
