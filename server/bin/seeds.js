@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/vapes', {useMongoClient: true});
+mongoose.connect('mongodb:admin:admin@ds139436.mlab.com:39436/vapes', {useMongoClient: true});
 const Product = require('../models/Product');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
@@ -301,16 +301,16 @@ const products = [
 ];
 
 Product.create(products, (err, products) => {
-    if (err){ throw(err) }
+    if (err){ throw(err);}
     console.log("Success", products);
     mongoose.connection.close();
-  })
+  });
 
   User.create(users, (err, users) => {
-    if (err){ throw(err) }
+    if (err){ throw(err); }
     console.log("Success", users);
     mongoose.connection.close();
-  })
+  });
 
 //   vapes.collection.drop();
 //   vapes.create(info, (err, docs) => {
