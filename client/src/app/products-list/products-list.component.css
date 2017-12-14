@@ -72,7 +72,7 @@ margin-bottom: 5px;
 
 .hoverly-item a i {
   font-size: 20px;
-  background: #f82e56;
+  background: #31b0d5;
   color: #fff;
   height: 40px;
   width: 40px;
@@ -82,9 +82,9 @@ margin-bottom: 5px;
 }
 
 .hoverly-item a i:hover {
-  border: 3px solid #f82e56;
+  border: 3px solid #31b0d5;
   background: #fff;
-  color: #f82e56;
+  color: #31b0d5;
   transition: all .4s ease-in;
 }
 .view-details-btn {
@@ -92,15 +92,15 @@ margin-bottom: 5px;
   line-height: 20px !important;
   margin-top: 50%;
   padding: 8px 25px;
-  background: #f82e56;
+  background: #31b0d5;
   color: #fff;
   border-color: transparent;
   border-radius: 0px;
   }
   .view-details-btn:hover {
 
-    color: #f82e56!important;
-    border: 1px solid #f82e56!important;
+    color: #46b8da!important;
+    border: 1px solid #46b8da!important;
     background: #fff!important;
     -webkit-transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
     transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
