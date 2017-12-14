@@ -25,9 +25,11 @@ import { AuthService } from './auth.service';
    }
 
    sendMessage(m){
-     console.log(this.auth.user.username);
+
+     let user = this.auth.user !==  null ? this.auth.user.username : 'Anonimous'
+
      this.socket.emit('send-message',{
-       message:`${m},${this.auth.user.username}`
+       message:`${m},${user}`
      });
 
      this.messages.push({
