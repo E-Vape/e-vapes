@@ -17,6 +17,7 @@ public shoppingCart = [];
 public changesSave: Boolean = false;
 public user;
 public product;
+i;
 
 constructor(
   public router: Router,

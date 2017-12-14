@@ -8,8 +8,9 @@ import { AuthService } from '../../services/auth.service';
    styleUrls: ['./chat.component.css']
  })
  export class ChatComponent implements OnInit {
+   m;
 
-   constructor( private chat: ChatService, private authService: AuthService) { }
+   constructor( public chat: ChatService, private authService: AuthService) { }
 
    ngOnInit() {
    }

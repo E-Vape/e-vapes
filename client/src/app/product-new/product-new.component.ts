@@ -11,7 +11,14 @@ import { ProductsService } from '../../services/products.service';
 
 export class ProductNewComponent implements OnInit {
   newProduct= {brand:'', model:'', description:'', price:'', rating:'', image:'', type:{ category:'', subcategory:''}};
-
+brand;
+model;
+description;
+price;
+rating;
+image;
+category;
+subcategory;
 
   constructor(private router: Router, private route: ActivatedRoute, private productsService: ProductsService) {}
 

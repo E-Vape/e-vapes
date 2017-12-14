@@ -13,6 +13,7 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 export class ProductsListComponent implements OnInit {
   products: Array<any> = [];
+  search;
 
   constructor(public ProductsService: ProductsService, public authService: AuthService, public shoppingCartService: ShoppingCartService,) {
   }
