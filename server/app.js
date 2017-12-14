@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(session({
   secret: 'vapesSecret',
@@ -59,7 +59,11 @@ app.use('/email', mail);
 app.use('/', product);
 app.use('/', review);
 app.use('/', address);
-app.use('/', cart)
+app.use('/', cart);
+
+app.use(function(req, res) {
+  res.sendfile(__dirname + '/public/index.html');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
