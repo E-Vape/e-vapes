@@ -33,8 +33,8 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -56,12 +56,12 @@ app.use(session({
 require('./passport')(app);
 app.use('/api/auth', auth);
 app.use('/email', mail);
-app.use('/', product);
-app.use('/', review);
+app.use('/list', product);
+app.use('/review', review);
 app.use('/', address);
-app.use('/', cart);
+app.use('/cart', cart);
 
-app.all((req, res) =>res.sendfile(__dirname + '/public/index.html'));
+app.use((req, res) =>res.sendfile(__dirname + '/public/index.html'));
 
 
 // catch 404 and forward to error handler
@@ -79,7 +79,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json('error');
 });
 
 module.exports = app;
